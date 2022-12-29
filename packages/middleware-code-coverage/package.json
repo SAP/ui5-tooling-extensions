@@ -1,0 +1,68 @@
+{
+	"name": "@ui5/middleware-code-coverage",
+	"version": "0.0.1-rc",
+	"description": "UI5 Tooling middleware to instrument code coverage with Istanbul",
+	"author": {
+		"name": "SAP SE",
+		"email": "openui5@sap.com",
+		"url": "https://www.sap.com"
+	},
+	"keywords": [
+		"openui5",
+		"sapui5",
+		"ui5",
+		"build",
+		"development",
+		"tool",
+		"istandbul",
+		"code coverage"
+	],
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
+	},
+	"type": "module",
+	"files": [
+		"CHANGELOG.md",
+		"README.md",
+		"../../CONTRIBUTING.md",
+		"lib/**",
+		"../../LICENSES/**",
+		"../../.reuse/**"
+	],
+	"dependencies": {
+		"body-parser": "^1.20.1",
+		"istanbul-lib-coverage": "^3.2.0",
+		"istanbul-lib-instrument": "^5.2.1",
+		"istanbul-lib-report": "^3.0.0",
+		"istanbul-reports": "^3.1.5",
+		"router": "^1.3.7",
+		"serve-static": "^1.15.0",
+		"xml2js": "^0.4.23"
+	},
+	"devDependencies": {
+		"@istanbuljs/esm-loader-hook": "^0.2.0",
+		"ava": "^5.1.0",
+		"depcheck": "^1.4.3",
+		"eslint": "^8.32.0",
+		"eslint-config-google": "^0.14.0",
+		"eslint-plugin-ava": "^14.0.0",
+		"esmock": "^2.1.0",
+		"get-port": "^6.1.2",
+		"nyc": "^15.1.0",
+		"sinon": "^15.0.1",
+		"supertest": "^6.3.3",
+		"wait-on": "^7.0.1"
+	},
+	"scripts": {
+		"test": "npm run lint && npm run coverage && npm run depcheck",
+		"lint": "eslint ./",
+		"depcheck": "depcheck --ignores ava,@istanbuljs/esm-loader-hook",
+		"unit": "ava",
+		"unit-verbose": "cross-env UI5_LOG_LVL=verbose ava --verbose --serial",
+		"unit-watch": "ava --watch",
+		"coverage": "nyc ava --node-arguments=\"--experimental-loader=@istanbuljs/esm-loader-hook\"",
+		"integration": "ava --config ava-integration.config.js"
+	}
+}

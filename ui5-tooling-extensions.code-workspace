@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"name": "middleware-code-coverage",
+			"path": "packages/middleware-code-coverage"
+		},
+		{
+			"name": "ui5-tooling-extensions",
+			"path": "."
+		}
+	],
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Debug AVA test file",
+				"cwd": "${fileDirname}",
+				"runtimeExecutable": "npx",
+				"runtimeArgs": [
+					"ava",
+					"debug",
+					"--break",
+					"${file}:${lineNumber}"
+				],
+				"port": 9229,
+				"outputCapture": "std",
+				"console": "integratedTerminal",
+				"skipFiles": [
+					"<node_internals>/**/*.js"
+				]
+			},
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Run AVA test file",
+				"cwd": "${fileDirname}",
+				"runtimeExecutable": "npx",
+				"runtimeArgs": [
+					"ava",
+					"${file}:${lineNumber}"
+				],
+				"port": 9229,
+				"outputCapture": "std",
+				"console": "integratedTerminal",
+				"skipFiles": [
+					"<node_internals>/**/*.js"
+				]
+			}
+		]
+	}
+}

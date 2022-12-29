@@ -1,0 +1,7 @@
+specVersion: '3.0'
+metadata:
+  name: "@ui5/middleware-code-coverage"
+kind: extension
+type: server-middleware
+middleware:
+  path: lib/middleware.js

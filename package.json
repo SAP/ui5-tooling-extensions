@@ -1,0 +1,32 @@
+{
+	"name": "ui5-tooling-extensions",
+	"private": true,
+	"version": "0.0.0",
+	"description": "A repository offering extensions of UI5 Tooling",
+	"author": {
+		"name": "SAP SE",
+		"email": "openui5@sap.com",
+		"url": "https://www.sap.com"
+	},
+	"keywords": [
+		"openui5",
+		"sapui5",
+		"ui5",
+		"build",
+		"development",
+		"tool",
+		"istandbul",
+		"code coverage"
+	],
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
+	},
+	"scripts": {
+		"test": "npm run test --workspaces --if-present"
+	},
+	"workspaces": [
+		"packages/*"
+	]
+}

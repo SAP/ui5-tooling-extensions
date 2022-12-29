@@ -1,0 +1,9 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="ui5.app.controller.App" displayBlock="true">
+		<App id="app">
+			<Page title="{i18n>title}">
+				<content>
+					<Button text="{i18n>button}" press="onButtonPress"/>
+				</content>
+			</Page>
+		</App>
+</mvc:View>
