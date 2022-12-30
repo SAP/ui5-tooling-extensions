@@ -1,5 +1,5 @@
-const xml2js = require("xml2js");
-const {Buffer} = require("node:buffer");
+import xml2js from "xml2js";
+import {Buffer} from "node:buffer";
 
 /**
  * Returns the configuration for instrumenting the files
@@ -7,7 +7,7 @@ const {Buffer} = require("node:buffer");
  * @param {object} configuration instrumentation configuration
  * @returns configuration
  */
-async function createInstrumenterConfig(configuration = {}, resources) {
+export async function createInstrumenterConfig(configuration = {}, resources) {
 	const excludedPatterns = await excludePatterns(resources);
 
 	const {instrument, report, ...generalConfig} = configuration;
@@ -71,7 +71,7 @@ function cereateInstrumenterConfig(configuration = {}) {
  * @param {object} config
  * @returns
  */
-function shouldInstrumentResource(request, config) {
+export function shouldInstrumentResource(request, config) {
 	return (
 		request.path &&
 		request.path.endsWith(".js") && // Only .js file requests
@@ -97,7 +97,7 @@ function isFalsyValue(value) {
  * @param {Instrumenter} instrumenter
  * @returns {string} sourceMap
  */
-function getLatestSourceMap(instrumenter) {
+export function getLatestSourceMap(instrumenter) {
 	const sourceMap = instrumenter.lastSourceMap();
 
 	if (!sourceMap) {
@@ -180,9 +180,3 @@ async function excludePatterns(resources) {
 
 	return aExcludes;
 }
-
-module.exports = {
-	createInstrumenterConfig,
-	shouldInstrumentResource,
-	getLatestSourceMap,
-};

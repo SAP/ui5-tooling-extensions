@@ -1,24 +1,22 @@
-const logger = require("@ui5/logger");
-const log = logger.getLogger(
-	"server:custommiddleware:ui5-middleware-instrumentation"
-);
-const {
+import {
 	createInstrumenterConfig,
 	shouldInstrumentResource,
-	getLatestSourceMap,
-} = require("./util");
-const {createInstrumenter} = require("istanbul-lib-instrument");
-const reportCoverage = require("./coverage-reporter");
-const bodyParser = require("body-parser");
-const Router = require("router");
-const path = require("path");
-const express = require("express");
-const {promisify} = require("util");
+	getLatestSourceMap} from "./util.js";
+import {createInstrumenter} from "istanbul-lib-instrument";
+import reportCoverage from "./coverage-reporter.js";
+import bodyParser from "body-parser";
+import Router from "router";
+import path from "node:path";
+import express from "express";
+import {promisify} from "node:util";
 
 /**
  * Custom middleware to instrument JS files with Istanbul.
  *
  * @param {object} parameters Parameters
+ * @param {@ui5/logger/StandardLogger} parameters.log
+ *      Logger instance for use in the custom middleware.
+ *      This parameter is only provided to custom middleware
  * @param {object} parameters.middlewareUtil Specification version dependent interface to a
  * 										[MiddlewareUtil]{https://sap.github.io/ui5-tooling/v3/api/@ui5_server_middleware_MiddlewareUtil.html} instance
  * @param {object} parameters.options Options
@@ -32,7 +30,7 @@ const {promisify} = require("util");
  * 										the projects dependencies
  * @returns {function} Middleware function to use
  */
-module.exports = async function({middlewareUtil, options, resources}) {
+export default async function({log, middlewareUtil, options, resources}) {
 	const config = await createInstrumenterConfig(
 		options.configuration,
 		resources.all
@@ -69,7 +67,8 @@ module.exports = async function({middlewareUtil, options, resources}) {
 			const reportData = await reportCoverage(
 				req.body,
 				config,
-				resources
+				resources,
+				log
 			);
 
 			if (reportData) {
@@ -136,4 +135,4 @@ module.exports = async function({middlewareUtil, options, resources}) {
 	});
 
 	return router;
-};
+}

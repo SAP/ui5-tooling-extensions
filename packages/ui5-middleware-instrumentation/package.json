@@ -22,8 +22,8 @@
 		"type": "git",
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
+	"type": "module",
 	"dependencies": {
-		"@ui5/logger": "^2.0.1",
 		"xml2js": "^0.4.23",
 		"express": "^4.18.2",
 		"istanbul-lib-instrument": "^5.2.1",
