@@ -1,0 +1,44 @@
+{
+  "name": "ui5-middleware-instrumentation",
+  "version": "0.0.1-rc",
+  "description": "UI5 Tooling middleware to instrument code coverage with Istanbul",
+  "author": {
+    "name": "SAP SE",
+    "email": "openui5@sap.com",
+    "url": "https://www.sap.com"
+  },
+  "keywords": [
+    "openui5",
+    "sapui5",
+    "ui5",
+    "build",
+    "development",
+    "tool",
+    "istandbul",
+    "code coverage"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SAP/ui5-tooling-extensions.git"
+  },
+  "dependencies": {
+    "@ui5/logger": "^2.0.1",
+    "@ui5/fs": "^2.0.6",
+    "xml2js": "^0.4.23",
+    "express": "^4.18.2",
+    "istanbul-lib-instrument": "^5.2.1",
+    "istanbul-lib-report": "^3.0.0",
+    "istanbul-reports": "^3.1.5",
+    "istanbul-lib-coverage": "^3.2.0",
+    "body-parser": "^1.20.0",
+    "router": "^1.3.5"
+  },
+  "devDependencies": {
+	"eslint": "^8.30.0",
+	"eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+	"lint": "eslint ./"
+  }
+}
