@@ -1,13 +1,12 @@
-{
+module.exports = {
 	"env": {
 		"node": true,
 		"es2022": true
 	},
-	"extends": [
-		"eslint:recommended",
-		"google"
+	"extends": ["eslint:recommended", "plugin:ava/recommended", "google"],
+	"plugins": [
+		"ava"
 	],
-	"plugins": [],
 	"rules": {
 		"indent": [
 			"error",
@@ -20,9 +19,7 @@
 		"quotes": [
 			"error",
 			"double",
-			{
-				"allowTemplateLiterals": true
-			}
+			{"allowTemplateLiterals": true}
 		],
 		"semi": [
 			"error",
@@ -41,16 +38,19 @@
 		],
 		"no-implicit-coercion": [
 			2,
-			{
-				"allow": [
-					"!!"
-				]
-			}
+			{"allow": ["!!"]}
 		],
 		"comma-dangle": "off",
 		"no-tabs": "off",
-		"no-console": "off", // scripts use console.log to print output
 		"valid-jsdoc": 0
 	},
+	"settings": {
+		"jsdoc": {
+			"tagNamePreference": {
+				"return": "returns",
+				"augments": "extends"
+			}
+		}
+	},
 	"root": true
-}
+};

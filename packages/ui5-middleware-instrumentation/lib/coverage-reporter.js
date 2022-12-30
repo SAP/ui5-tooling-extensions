@@ -1,7 +1,7 @@
 const libReport = require("istanbul-lib-report");
 const reports = require("istanbul-reports");
 const istanbulLibCoverage = require("istanbul-lib-coverage");
-const path = require("path");
+const path = require("node:path");
 const logger = require("@ui5/logger");
 const log = logger.getLogger("server:custommiddleware:ui5-middleware-instrumentation");
 

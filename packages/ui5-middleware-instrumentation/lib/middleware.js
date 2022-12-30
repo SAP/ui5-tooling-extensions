@@ -1,5 +1,7 @@
 const logger = require("@ui5/logger");
-const log = logger.getLogger("server:custommiddleware:ui5-middleware-instrumentation");
+const log = logger.getLogger(
+	"server:custommiddleware:ui5-middleware-instrumentation"
+);
 const {
 	createInstrumenterConfig,
 	shouldInstrumentResource,
@@ -17,6 +19,10 @@ const {promisify} = require("util");
  * Custom middleware to instrument JS files with Istanbul.
  *
  * @param {object} parameters Parameters
+ * @param {object} parameters.middlewareUtil Specification version dependent interface to a
+ * 										[MiddlewareUtil]{https://sap.github.io/ui5-tooling/v3/api/@ui5_server_middleware_MiddlewareUtil.html} instance
+ * @param {object} parameters.options Options
+ * @param {string} [parameters.options.configuration] Custom server middleware configuration if given in ui5.yaml
  * @param {object} parameters.resources Resource collections
  * @param {module:@ui5/fs.AbstractReader} parameters.resources.all Reader or Collection to read resources of the
  * 										root project and its dependencies
@@ -24,13 +30,9 @@ const {promisify} = require("util");
  * 										the project the server is started in
  * @param {module:@ui5/fs.AbstractReader} parameters.resources.dependencies Reader or Collection to read resources of
  * 										the projects dependencies
- * @param {object} parameters.middlewareUtil Specification version dependent interface to a
- * 										[MiddlewareUtil]{@link module:@ui5/server.middleware.MiddlewareUtil} instance
- * @param {object} parameters.options Options
- * @param {string} [parameters.options.configuration] Custom server middleware configuration if given in ui5.yaml
  * @returns {function} Middleware function to use
  */
-module.exports = async function({resources, options, middlewareUtil}) {
+module.exports = async function({middlewareUtil, options, resources}) {
 	const config = await createInstrumenterConfig(
 		options.configuration,
 		resources.all
