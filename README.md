@@ -9,11 +9,11 @@
 [![Fosstars security rating](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_badge.svg)](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_report.md)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/ui5-tooling-extensions)](https://api.reuse.software/info/github.com/SAP/ui5-tooling-extensions)
 
-## Resources
-
 ## Packages
 
 UI5 Tooling Extensions consists of multiple packages managed in a separate folder:
+
+- [ui5-middleware-instrumentation](packages/ui5-middleware-instrumentation/): A custom server middleware providing an endpoint for code instrumentation
 
 ## Contributing
 
