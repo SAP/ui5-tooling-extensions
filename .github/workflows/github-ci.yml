@@ -1,0 +1,28 @@
+name: GitHub CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: General checks and tests
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js LTS 16.x
+      uses: actions/setup-node@v3.5.1
+      with:
+        node-version: 16.x
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Perform checks and tests
+      run: npm test

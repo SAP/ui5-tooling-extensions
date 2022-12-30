@@ -9,7 +9,6 @@
 [![Fosstars security rating](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_badge.svg)](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_report.md)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/ui5-tooling-extensions)](https://api.reuse.software/info/github.com/SAP/ui5-tooling-extensions)
 
-
 ## Resources
 
 ## Packages
