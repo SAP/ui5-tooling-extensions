@@ -1,11 +1,9 @@
-const libReport = require("istanbul-lib-report");
-const reports = require("istanbul-reports");
-const istanbulLibCoverage = require("istanbul-lib-coverage");
-const path = require("node:path");
-const logger = require("@ui5/logger");
-const log = logger.getLogger("server:custommiddleware:ui5-middleware-instrumentation");
+import libReport from "istanbul-lib-report";
+import reports from "istanbul-reports";
+import istanbulLibCoverage from "istanbul-lib-coverage";
+import path from "node:path";
 
-module.exports = async function(globalCoverageMap, config, resources) {
+export default async function(globalCoverageMap, config, resources, log) {
 	const coverageMap =
 		istanbulLibCoverage.createCoverageMap(globalCoverageMap);
 	const {report: reportConfig} = config;
@@ -64,4 +62,4 @@ module.exports = async function(globalCoverageMap, config, resources) {
 		coverageMap: Object.keys(coverageMap.data),
 		availableReports: reportResults
 	};
-};
+}
