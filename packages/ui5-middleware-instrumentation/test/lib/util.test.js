@@ -1,5 +1,5 @@
-const test = require("ava");
-// const {createInstrumenterConfig} = require("../../lib/util");
+import test from "ava";
+// import {createInstrumenterConfig} from "../../lib/util.js";
 
 test("createInstrumenterConfig", (t) => {
 	// const expectedConfig = {};
