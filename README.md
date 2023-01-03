@@ -11,7 +11,7 @@
 
 ## Requirements
 
-This middleware requires UI5 Tooling Version 3 and above.
+The offered extensions require UI5 Tooling Version 3 and above.
 
 ## Packages
 
@@ -19,13 +19,15 @@ UI5 Tooling Extensions consists of multiple packages managed in a separate folde
 
 - [ui5-middleware-instrumentation](packages/ui5-middleware-instrumentation/): A custom server middleware providing an endpoint for code instrumentation
 
+These extensions are developed and maintained by SAP. There are many more UI5 Tooling extensions avaible developed by the open source community. Check out [Best of UI5](https://bestofui5.org/) to explore the world of custom UI5 Tooling middlewares/tasks, UI5 controls and more.
+
 ## Code of Conduct
 
-Please check our [Code of Conduct](https://github.com/SAP/ui5-tooling/blob/main/CODE_OF_CONDUCT.md).
+Please check our [Code of Conduct](https://github.com/SAP/ui5-tooling-extensions/blob/main/CODE_OF_CONDUCT.md).
 
 ## Contributing
 
-Please check our [Contribution Guidelines](https://github.com/SAP/ui5-tooling/blob/main/CONTRIBUTING.md).
+Please check our [Contribution Guidelines](https://github.com/SAP/ui5-tooling-extensions/blob/main/CONTRIBUTING.md).
 
 ## Support
 
