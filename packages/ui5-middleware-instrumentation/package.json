@@ -23,6 +23,14 @@
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
 	"type": "module",
+	"files": [
+		"CHANGELOG.md",
+		"README.md",
+		"../../CONTRIBUTING.md",
+		"lib/**",
+		"../../LICENSES/**",
+		"../../.reuse/**"
+	],
 	"dependencies": {
 		"xml2js": "^0.4.23",
 		"express": "^4.18.2",

@@ -16,67 +16,159 @@ npm install ui5-middleware-instrumentation --save-dev
 
 1. Define the dependency in `$yourapp/package.json`:
 
-```json
-"devDependencies": {
-    // ...
-    "ui5-middleware-instrumentation": "*"
-    // ...
-}
-```
+    ```json
+    "devDependencies": {
+        // ...
+        "ui5-middleware-instrumentation": "*"
+        // ...
+    }
+    ```
 
 2. Configure it in `$yourapp/ui5.yaml`:
 
-The configuration for the custom middleware:
+    The configuration for the custom middleware:
 
-```yaml
-server:
-  customMiddleware:
-  - name: ui5-middleware-instrumentation
-    afterMiddleware: compression
-    configuration:
-      # Reporter Default Configuration
-      report:
-        reporter: ["html"]
-        "report-dir": "./tmp/coverage-reports"
-        watermarks: {
-          statements: [50, 80],
-          functions: [50, 80],
-          branches: [50, 80],
-          lines: [50, 80],
-        }
-      # Instrumenter Default Configuration
-      instrument:
-        produceSourceMap: true
-        coverageGlobalScope: "window.top"
-        coverageGlobalScopeFunc: false
-      cwd: "./"
-      excludePatterns:
-      - "lib/"
-      - "another/dir/in/webapp"
-      - "yet/another/dir"
-```
+    ```yaml
+    server:
+      customMiddleware:
+      - name: ui5-middleware-instrumentation
+        afterMiddleware: compression
+        configuration:
+          report:
+            reporter: ["html"]
+            "report-dir": "./tmp/coverage-reports"
+            watermarks: {
+              statements: [50, 80],
+              functions: [50, 80],
+              branches: [50, 80],
+              lines: [50, 80]
+            }
+          instrument:
+            produceSourceMap: true
+            coverageGlobalScope: "window.top"
+            coverageGlobalScopeFunc: false
+          cwd: "./"
+          excludePatterns:
+          - "lib/"
+          - "another/dir/in/webapp"
+          - "yet/another/dir"
+    ```
 
-3. Execute `ui5 serve` in the project root folder
+3. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
 
-4. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
+    **Old:**
 
-5. See the coverage data
+    ```html title="unitTests.qunit.html"
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unit tests for Todo App</title>
+
+        <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
+          data-sap-ui-theme="sap_fiori_3"
+          data-sap-ui-resourceroots='{
+            "sap.ui.demo.todo": "../../"
+          }' data-sap-ui-language="EN" data-sap-ui-async="true">
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/thirdparty/qunit-2.css">
+
+        <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
+        <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
+        <script src="../../resources/sap/ui/qunit/qunit-coverage.js"
+          data-sap-ui-cover-only="sap/ui/demo/todo/"
+          data-sap-ui-cover-never="sap/ui/demo/todo/test/"></script>
+        <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
+        <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
+
+        <script src="unitTests.qunit.js"></script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+    </body>
+    </html>
+    ```
+
+    **New:**
+
+    ```html title="unitTests.qunit.html"
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unit tests for Todo App</title>
+
+        <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
+          data-sap-ui-theme="sap_fiori_3"
+          data-sap-ui-resourceroots='{
+            "sap.ui.demo.todo": "../../"
+          }' data-sap-ui-language="EN" data-sap-ui-async="true">
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/thirdparty/qunit-2.css">
+
+        <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
+        <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
+        <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
+          data-sap-ui-cover-only="sap/ui/demo/todo/"
+          data-sap-ui-cover-never="sap/ui/demo/todo/test/"></script>
+        <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
+        <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
+
+        <script src="unitTests.qunit.js"></script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+    </body>
+    </html>
+    ```
+
+4. Execute `ui5 serve` in the project root folder
+
+5. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
+
+6. Check the code coverage
+  ![UI5 logo](./docs/images/sample-app-coverage-data.png)
 
 ### Configuration
 
-`cwd` [String]: Root folder
+`cwd` [String]: Root folder. Defaults to `"./"` of the project consuming the middleware.
 
-`excludePatterns` [Array]: Patterns to exclude from instrumenting.
+`excludePatterns` [Array]: Patterns to exclude from instrumenting. Defaults to `[]`.
 
 `report` [Object]: Settings for the reporter.
 
-`report.reporter` [Array]: The report type(s) that would be generated. List of all the available reports could be found [here](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib)
+`report.reporter` [Array]: The report type(s) that would be generated. List of all the available reports could be found [here](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib). Defaults to `["html"]`.
 
-`report["report-dir"]` [String]: Where the reports would be generated. Relative to `cwd`
+`report["report-dir"]` [String]: Where the reports would be generated. Relative to `cwd`. Defaults to `"./tmp/coverage-reports"`.
 
-`report.watermarks` [Object]: Coverage thresholds.
+`report.watermarks` [Object]: Coverage thresholds. See [High and Low Watermarks](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) for further details.
 
-`instrument` [Object]: Settings for the instrumenter. Full set of the properties could be seen [here](https://github.com/istanbuljs/istanbuljs/blob/master/packages/istanbul-lib-instrument/src/instrumenter.js#L15)
+Defaults to:
+
+```json
+{
+    statements: [50, 80],
+    functions: [50, 80],
+    branches: [50, 80],
+    lines: [50, 80]
+}
+```
+
+`instrument` [Object]: Settings for the instrumenter. Full set of the properties could be seen [here](https://github.com/istanbuljs/istanbuljs/blob/master/packages/istanbul-lib-instrument/src/instrumenter.js#L15).
+
+Defaults to:
+
+```json
+{
+    produceSourceMap: true,
+    coverageGlobalScope: "window.top",
+    coverageGlobalScopeFunc: false
+}
+```
 
 ## How it works
 
