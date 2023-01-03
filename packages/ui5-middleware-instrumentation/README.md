@@ -149,7 +149,7 @@ npm install ui5-middleware-instrumentation --save-dev
 
 Defaults to:
 
-```json
+```js
 {
     statements: [50, 80],
     functions: [50, 80],
@@ -162,7 +162,7 @@ Defaults to:
 
 Defaults to:
 
-```json
+```js
 {
     produceSourceMap: true,
     coverageGlobalScope: "window.top",
