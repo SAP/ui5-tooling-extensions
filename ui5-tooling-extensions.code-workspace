@@ -1,8 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "ui5-middleware-instrumentation",
-			"path": "packages/ui5-middleware-instrumentation"
+			"name": "middleware-code-coverage",
+			"path": "packages/middleware-code-coverage"
 		},
 		{
 			"name": "ui5-tooling-extensions",

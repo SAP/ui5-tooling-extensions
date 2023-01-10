@@ -1,0 +1,48 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ui5.app",
+		"type": "application",
+		"title": "An OpenUI5 app",
+		"applicationVersion": {
+			"version": "0.0.1"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"dependencies": {
+			"minUI5Version": "1.75.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"rootView": {
+			"viewName": "ui5.app.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "appView"
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ui5.app.i18n.i18n",
+					"supportedLocales": [""],
+					"fallbackLocale": ""
+				}
+			}
+		}
+	}
+}

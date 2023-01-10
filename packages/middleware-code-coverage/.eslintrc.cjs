@@ -55,5 +55,33 @@ module.exports = {
 			}
 		}
 	},
-	"root": true
+	"root": true,
+	"overrides": [
+		{
+			"files": [
+				"**/*.cjs"
+			],
+			"parserOptions": {
+				"sourceType": "script"
+			}
+		},
+		{
+			"files": [
+				"test/integration/fixtures/ui5-app/webapp/**/*.js"
+			],
+			"env": {
+				"browser": true
+			},
+			"globals": {
+				"sap": "readonly",
+				"QUnit": "readonly"
+			}
+		},
+		{
+			"files": ["test/integration/*.js"],
+			"rules": {
+				"ava/no-ignored-test-files": "off"
+			}
+		}
+	]
 };

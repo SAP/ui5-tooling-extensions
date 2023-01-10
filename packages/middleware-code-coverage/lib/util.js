@@ -1,14 +1,16 @@
 import xml2js from "xml2js";
 import {Buffer} from "node:buffer";
+import {readFile} from "node:fs/promises";
 
 /**
  * Returns the configuration for instrumenting the files
  *
+ * @public
  * @param {object} configuration instrumentation configuration
  * @returns configuration
  */
-export async function createInstrumenterConfig(configuration = {}, resources) {
-	const excludedPatterns = await excludePatterns(resources);
+export async function createInstrumentationConfig(configuration = {}, resources) {
+	const excludedPatterns = resources ? await excludePatterns(resources) : [];
 
 	const {instrument, report, ...generalConfig} = configuration;
 
@@ -20,7 +22,7 @@ export async function createInstrumenterConfig(configuration = {}, resources) {
 		...generalConfig,
 
 		// Intrumenter configuration
-		...{instrument: cereateInstrumenterConfig(instrument)},
+		...{instrument: createInstrumenterConfig(instrument)},
 
 		// Reporter configuration
 		...{report: createReporterConfig(report)},
@@ -28,8 +30,70 @@ export async function createInstrumenterConfig(configuration = {}, resources) {
 }
 
 /**
+ * Returns the source map of the latest instrumented resource
+ *
+ * @public
+ * @param {Instrumenter} instrumenter
+ * @returns {string} sourceMap
+ */
+export function getLatestSourceMap(instrumenter) {
+	const sourceMap = instrumenter.lastSourceMap();
+
+	if (!sourceMap) {
+		return "";
+	}
+
+	return (
+		"\r\n//# sourceMappingURL=data:application/json;charset=utf-8;base64," +
+		Buffer.from(JSON.stringify(sourceMap), "utf8").toString("base64")
+	);
+}
+
+/**
+ * Checks whether a request to resource should be instrumented
+ *
+ * @public
+ * @param {object} request
+ * @param {object} config
+ * @returns
+ */
+export function shouldInstrumentResource(request, config) {
+	return (
+		request.path &&
+		request.path.endsWith(".js") && // Only .js file requests
+		!isFalsyValue(request.query.instrument) && // instrument only flagged files, ignore "falsy" values
+		!(config && config.excludePatterns || []).some((pattern) => {
+			if (pattern instanceof RegExp) {
+				// The ones comming from .library files are regular expressions
+				return pattern.test(request.path);
+			} else {
+				return request.path.includes(pattern);
+			}
+		})
+	);
+}
+
+/**
+ * Returns the configuration for the instrumenter
+ *
+ * @private
+ * @param {object} configuration
+ * @returns
+ */
+function createInstrumenterConfig(configuration = {}) {
+	const defaultValues = {
+		produceSourceMap: true,
+		coverageGlobalScope: "window.top",
+		coverageGlobalScopeFunc: false,
+	};
+
+	return {...defaultValues, ...configuration};
+}
+
+/**
  * Returns the configuration for the reporting
  *
+ * @private
  * @param {object} configuration Reporting configuration
  * @returns
  */
@@ -49,65 +113,14 @@ function createReporterConfig(configuration = {}) {
 }
 
 /**
- * Returns the configuration for the instrumenter
+ * Determines if given <code>value</code> is falsy
  *
- * @param {object} configuration
- * @returns
+ * @private
+ * @param {any} value
+ * @returns {boolean} True when <code>value</code> is falsy, false if not
  */
-function cereateInstrumenterConfig(configuration = {}) {
-	const defaultValues = {
-		produceSourceMap: true,
-		coverageGlobalScope: "window.top",
-		coverageGlobalScopeFunc: false,
-	};
-
-	return {...defaultValues, ...configuration};
-}
-
-/**
- * Checks whether a request to resource should be instrumented
- *
- * @param {object} request
- * @param {object} config
- * @returns
- */
-export function shouldInstrumentResource(request, config) {
-	return (
-		request.path &&
-		request.path.endsWith(".js") && // Only .js file requests
-		!isFalsyValue(request.query.instrument) && // instrument only flagged files, ignore "falsy" values
-		!(config.excludePatterns || []).some((pattern) => {
-			if (pattern instanceof RegExp) {
-				// The ones comming from .library files are regular expressions
-				return pattern.test(request.path);
-			} else {
-				return request.path.includes(pattern);
-			}
-		})
-	);
-}
-
 function isFalsyValue(value) {
 	return [undefined, "false", "0", "null"].includes(value);
-}
-
-/**
- * Returns the source map of the latest instrumented resource
- *
- * @param {Instrumenter} instrumenter
- * @returns {string} sourceMap
- */
-export function getLatestSourceMap(instrumenter) {
-	const sourceMap = instrumenter.lastSourceMap();
-
-	if (!sourceMap) {
-		return "";
-	}
-
-	return (
-		"\r\n//# sourceMappingURL=data:application/json;charset=utf-8;base64," +
-		Buffer.from(JSON.stringify(sourceMap), "utf8").toString("base64")
-	);
 }
 
 /**
@@ -116,6 +129,7 @@ export function getLatestSourceMap(instrumenter) {
  * Note: .library: version="2.0" -> slash notation, and missing is "dot notation".
  * Note: We might consider to move this utility into the @ui5/project
  *
+ * @private
  * @param {@ui5/fs/Resource[]} resources
  * @returns exclude patterns
  */
@@ -179,4 +193,16 @@ async function excludePatterns(resources) {
 	}
 
 	return aExcludes;
+}
+
+/**
+ * Reads and parses the JSON file located on the given <code>filePath</code>
+ *
+ * @private
+ * @param {string} filePath Path to JSON file
+ * @returns {object} The object representation of the JSON file
+ */
+export async function readJsonFile(filePath) {
+	const content = await readFile(filePath, "utf8");
+	return JSON.parse(content);
 }

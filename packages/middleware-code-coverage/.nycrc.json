@@ -1,0 +1,40 @@
+{
+	"reporter": [
+		"lcov",
+		"text",
+		"text-summary"
+	],
+	"exclude": [
+		"coverage/**",
+		"test/**",
+		"tmp/**",
+		".eslintrc.cjs",
+		"*.config.js",
+		"*.config.cjs"
+	],
+	"check-coverage": true,
+	"statements": 100,
+	"branches": 100,
+	"functions": 100,
+	"lines": 100,
+	"watermarks": {
+		"statements": [
+			70,
+			100
+		],
+		"branches": [
+			70,
+			100
+		],
+		"functions": [
+			70,
+			100
+		],
+		"lines": [
+			70,
+			100
+		]
+	},
+	"cache": true,
+	"all": true
+}

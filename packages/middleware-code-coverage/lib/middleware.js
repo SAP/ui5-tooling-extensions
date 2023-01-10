@@ -1,13 +1,14 @@
 import {
-	createInstrumenterConfig,
+	createInstrumentationConfig,
 	shouldInstrumentResource,
-	getLatestSourceMap} from "./util.js";
+	getLatestSourceMap,
+	readJsonFile} from "./util.js";
 import {createInstrumenter} from "istanbul-lib-instrument";
 import reportCoverage from "./coverage-reporter.js";
 import bodyParser from "body-parser";
 import Router from "router";
 import path from "node:path";
-import express from "express";
+import serveStatic from "serve-static";
 import {promisify} from "node:util";
 
 /**
@@ -30,19 +31,19 @@ import {promisify} from "node:util";
  * 										the projects dependencies
  * @returns {function} Middleware function to use
  */
-export default async function({log, middlewareUtil, options, resources}) {
-	const config = await createInstrumenterConfig(
+export default async function({log, middlewareUtil, options={}, resources}) {
+	const config = await createInstrumentationConfig(
 		options.configuration,
 		resources.all
 	);
 	const {
-		report: reportConfig,
-		instrument: instrumentConfig,
+		report: reporterConfig,
+		instrument: instrumenterConfig,
 		...generalConfig
 	} = config;
 
 	// Instrumenter instance
-	const instrumenter = createInstrumenter(instrumentConfig);
+	const instrumenter = createInstrumenter(instrumenterConfig);
 	const instrument = promisify(instrumenter.instrument.bind(instrumenter));
 
 	const router = new Router();
@@ -63,7 +64,7 @@ export default async function({log, middlewareUtil, options, resources}) {
 	router.post(
 		"/.ui5/coverage/report",
 		bodyParser.json({type: "application/json", limit: "50mb"}),
-		async (req, res, next) => {
+		async (req, res) => {
 			const reportData = await reportCoverage(
 				req.body,
 				config,
@@ -82,19 +83,19 @@ export default async function({log, middlewareUtil, options, resources}) {
 	/**
 	 * Endpoint to check for middleware existence
 	 */
-	router.get("/.ui5/coverage/ping", (req, res) => {
-		const {version} = require("../package.json");
+	router.get("/.ui5/coverage/ping", async (req, res) => {
+		const {version} = await readJsonFile("./package.json");
 		res.json({version});
 	});
 
 	/**
-	 * Serves generated reportas as static assets
+	 * Serves generated reports as static assets
 	 */
-	reportConfig.reporter.forEach((reportType) =>
+	reporterConfig.reporter.forEach((reportType) =>
 		router.use(
 			`/.ui5/coverage/report/${reportType}`,
-			express.static(
-				path.join(config.cwd, reportConfig["report-dir"], reportType)
+			serveStatic(
+				path.join(config.cwd, reporterConfig["report-dir"], reportType)
 			)
 		)
 	);
@@ -123,7 +124,7 @@ export default async function({log, middlewareUtil, options, resources}) {
 		log.verbose(`...${pathname} instrumented!`);
 
 		// Append sourceMap
-		if (instrumentConfig.produceSourceMap) {
+		if (instrumenterConfig.produceSourceMap) {
 			instrumentedSource += getLatestSourceMap(instrumenter);
 
 			log.verbose(`...${pathname} sourceMap embedded!`);

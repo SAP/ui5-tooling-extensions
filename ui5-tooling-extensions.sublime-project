@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "packages/ui5-middleware-instrumentation",
+			"path": "packages/middleware-code-coverage",
 		}
 	],
 }
