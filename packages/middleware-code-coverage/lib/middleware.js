@@ -15,7 +15,7 @@ import {promisify} from "node:util";
  * Custom middleware to instrument JS files with Istanbul.
  *
  * @param {object} parameters Parameters
- * @param {@ui5/logger/StandardLogger} parameters.log
+ * @param {@ui5/logger/Logger} parameters.log
  *      Logger instance for use in the custom middleware.
  *      This parameter is only provided to custom middleware
  * @param {object} parameters.middlewareUtil Specification version dependent interface to a

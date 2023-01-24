@@ -63,7 +63,6 @@
 		"unit-verbose": "cross-env UI5_LOG_LVL=verbose ava --verbose --serial",
 		"unit-watch": "ava --watch",
 		"coverage": "nyc ava --node-arguments=\"--experimental-loader=@istanbuljs/esm-loader-hook\"",
-		"integration": "ava --config ava-integration.config.js",
-		"integration-saucelabs": "ava --config ava-integration.config.js -- --useSauceLabs=true"
+		"integration": "ava --config ava-integration.config.js"
 	}
 }

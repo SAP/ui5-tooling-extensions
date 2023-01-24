@@ -20,17 +20,7 @@ npm install @ui5/middleware-code-coverage --save-dev
 
 ## Usage
 
-1. Define the dependency in `$yourapp/package.json`:
-
-    ```json
-    "devDependencies": {
-        // ...
-        "@ui5/middleware-code-coverage": "*"
-        // ...
-    }
-    ```
-
-2. Configure it in `$yourapp/ui5.yaml`:
+1. Configure it in `$yourapp/ui5.yaml`:
 
     The configuration for the custom middleware:
 
@@ -60,7 +50,7 @@ npm install @ui5/middleware-code-coverage --save-dev
           - "yet/another/dir"
     ```
 
-3. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
+2. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
 
     **Old:**
 
@@ -132,11 +122,11 @@ npm install @ui5/middleware-code-coverage --save-dev
     </html>
     ```
 
-4. Execute `ui5 serve` in the project root folder
+3. Execute `ui5 serve` in the project root folder
 
-5. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
+4. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
 
-6. Check the code coverage
+5. Check the code coverage
   ![UI5 logo](./docs/images/sample-app-coverage-data.png)
 
 ### Configuration

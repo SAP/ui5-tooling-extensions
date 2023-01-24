@@ -21,7 +21,7 @@ import path from "node:path";
  *  the project the server is started in
  * @param {module:@ui5/fs.AbstractReader} resources.dependencies Reader or Collection to read resources of
  *  the projects dependencies
- * @param {@ui5/logger/StandardLogger} log
+ * @param {@ui5/logger/Logger} log
  *  Logger instance of the custom middleware instance
  * @returns {@ui5/middleware-code-coverage/Coverage}
  */
