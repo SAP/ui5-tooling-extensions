@@ -3,6 +3,28 @@ import reports from "istanbul-reports";
 import istanbulLibCoverage from "istanbul-lib-coverage";
 import path from "node:path";
 
+/**
+ * @typedef {object} @ui5/middleware-code-coverage/Coverage
+ * @property {string[]} coverageMap
+ * @property {object[]} availableReports
+ */
+
+/**
+ * Reports the coverage
+ *
+ * @param {object} globalCoverageMap
+ * @param {*} config
+ * @param {object} resources Resource collections
+ * @param {module:@ui5/fs.AbstractReader} resources.all Reader or Collection to read resources of the
+ *  root project and its dependencies
+ * @param {module:@ui5/fs.AbstractReader} resources.rootProject Reader or Collection to read resources of
+ *  the project the server is started in
+ * @param {module:@ui5/fs.AbstractReader} resources.dependencies Reader or Collection to read resources of
+ *  the projects dependencies
+ * @param {@ui5/logger/Logger} log
+ *  Logger instance of the custom middleware instance
+ * @returns {@ui5/middleware-code-coverage/Coverage}
+ */
 export default async function(globalCoverageMap, config, resources, log) {
 	const coverageMap =
 		istanbulLibCoverage.createCoverageMap(globalCoverageMap);

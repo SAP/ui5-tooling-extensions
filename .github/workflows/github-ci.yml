@@ -26,3 +26,11 @@ jobs:
 
     - name: Perform checks and tests
       run: npm test
+
+    - name: Send report to Coveralls for package @ui5/middleware-code-coverage
+      uses: coverallsapp/github-action@1.1.3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        flag-name: middleware-code-coverage
+        base-path: ./packages/middleware-code-coverage
+        path-to-lcov: ./packages/middleware-code-coverage/coverage/lcov.info

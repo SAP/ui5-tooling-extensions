@@ -2,6 +2,12 @@
 
 This UI5 Tooling Server Middleware offeres code instrumentation powered by [istanbul](https://istanbul.js.org/). With that it's such easy to enable client-side coverage determination.
 
+[![Coverage Status](https://coveralls.io/repos/github/SAP/ui5-tooling-extensions/badge.svg)](https://coveralls.io/github/SAP/ui5-tooling-extensions)
+[![OpenUI5 Community Slack (#tooling channel)](https://img.shields.io/badge/slack-join-44cc11.svg)](https://ui5-slack-invite.cfapps.eu10.hana.ondemand.com/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Fosstars security rating](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_badge.svg)](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_report.md)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/ui5-tooling-extensions)](https://api.reuse.software/info/github.com/SAP/ui5-tooling-extensions)
+
 ## Requirements
 
 This middleware requires UI5 Tooling Version 3 and above.
@@ -9,29 +15,19 @@ This middleware requires UI5 Tooling Version 3 and above.
 ## Install
 
 ```sh
-npm install ui5-middleware-instrumentation --save-dev
+npm install @ui5/middleware-code-coverage --save-dev
 ```
 
 ## Usage
 
-1. Define the dependency in `$yourapp/package.json`:
-
-    ```json
-    "devDependencies": {
-        // ...
-        "ui5-middleware-instrumentation": "*"
-        // ...
-    }
-    ```
-
-2. Configure it in `$yourapp/ui5.yaml`:
+1. Configure it in `$yourapp/ui5.yaml`:
 
     The configuration for the custom middleware:
 
     ```yaml
     server:
       customMiddleware:
-      - name: ui5-middleware-instrumentation
+      - name: "@ui5/middleware-code-coverage"
         afterMiddleware: compression
         configuration:
           report:
@@ -54,7 +50,7 @@ npm install ui5-middleware-instrumentation --save-dev
           - "yet/another/dir"
     ```
 
-3. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
+2. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
 
     **Old:**
 
@@ -63,12 +59,12 @@ npm install ui5-middleware-instrumentation --save-dev
     <html>
     <head>
         <meta charset="utf-8">
-        <title>Unit tests for Todo App</title>
+        <title>Unit tests for OpenUI5 App</title>
 
         <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
-          data-sap-ui-theme="sap_fiori_3"
+          data-sap-ui-theme="sap_horizon"
           data-sap-ui-resourceroots='{
-            "sap.ui.demo.todo": "../../"
+            "ui5.sample": "../../"
           }' data-sap-ui-language="EN" data-sap-ui-async="true">
         </script>
 
@@ -77,8 +73,8 @@ npm install ui5-middleware-instrumentation --save-dev
         <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-coverage.js"
-          data-sap-ui-cover-only="sap/ui/demo/todo/"
-          data-sap-ui-cover-never="sap/ui/demo/todo/test/"></script>
+          data-sap-ui-cover-only="ui5/sample/"
+          data-sap-ui-cover-never="ui5/sample/test/"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
 
@@ -98,12 +94,12 @@ npm install ui5-middleware-instrumentation --save-dev
     <html>
     <head>
         <meta charset="utf-8">
-        <title>Unit tests for Todo App</title>
+        <title>Unit tests for OpenUI5 App</title>
 
         <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
-          data-sap-ui-theme="sap_fiori_3"
+          data-sap-ui-theme="sap_horizon"
           data-sap-ui-resourceroots='{
-            "sap.ui.demo.todo": "../../"
+            "ui5.sample": "../../"
           }' data-sap-ui-language="EN" data-sap-ui-async="true">
         </script>
 
@@ -112,8 +108,8 @@ npm install ui5-middleware-instrumentation --save-dev
         <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
-          data-sap-ui-cover-only="sap/ui/demo/todo/"
-          data-sap-ui-cover-never="sap/ui/demo/todo/test/"></script>
+          data-sap-ui-cover-only="ui5/sample/"
+          data-sap-ui-cover-never="ui5/sample/test/"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
 
@@ -126,11 +122,11 @@ npm install ui5-middleware-instrumentation --save-dev
     </html>
     ```
 
-4. Execute `ui5 serve` in the project root folder
+3. Execute `ui5 serve` in the project root folder
 
-5. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
+4. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
 
-6. Check the code coverage
+5. Check the code coverage
   ![UI5 logo](./docs/images/sample-app-coverage-data.png)
 
 ### Configuration

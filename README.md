@@ -4,6 +4,7 @@
 
 > An mono repository containing several packages providing further capabilities when using [UI5 Tooling](https://github.com/SAP/ui5-tooling).
 
+[![Coverage Status](https://coveralls.io/repos/github/SAP/ui5-tooling-extensions/badge.svg)](https://coveralls.io/github/SAP/ui5-tooling-extensions)
 [![OpenUI5 Community Slack (#tooling channel)](https://img.shields.io/badge/slack-join-44cc11.svg)](https://ui5-slack-invite.cfapps.eu10.hana.ondemand.com/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 [![Fosstars security rating](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_badge.svg)](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_report.md)
@@ -17,7 +18,7 @@ The offered extensions require UI5 Tooling Version 3 and above.
 
 UI5 Tooling Extensions consists of multiple packages managed in a separate folder:
 
-- [ui5-middleware-instrumentation](packages/ui5-middleware-instrumentation/): A custom server middleware providing an endpoint for code instrumentation
+- [middleware-code-coverage](packages/middleware-code-coverage/): A custom server middleware providing an endpoint for code instrumentation
 
 These extensions are developed and maintained by SAP. There are many more UI5 Tooling extensions avaible developed by the open source community. Check out [Best of UI5](https://bestofui5.org/) to explore the world of custom UI5 Tooling middlewares/tasks, UI5 controls and more.
 

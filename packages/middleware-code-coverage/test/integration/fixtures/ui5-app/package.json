@@ -1,0 +1,13 @@
+{
+	"name": "ui5-app",
+	"version": "0.0.1",
+	"description": "An OpenUI5 app",
+	"private": true,
+	"scripts": {
+		"start": "ui5 serve"
+	},
+	"devDependencies": {
+		"@ui5/cli": "^3.0.0-rc.1",
+		"@ui5/middleware-code-coverage": "../../../"
+	}
+}

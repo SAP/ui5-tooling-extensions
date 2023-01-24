@@ -50,3 +50,6 @@ jspm_packages
 # Misc
 yarn.lock
 .DS_Store
+
+# tmp folders
+tmp
