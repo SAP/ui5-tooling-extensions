@@ -300,8 +300,15 @@ test("shouldInstrumentResource: Non flagged resources", (t) => {
 });
 
 test("shouldInstrumentResource: Flag resource as non instrumented", (t) => {
-	const toBeInstrumented = shouldInstrumentResource(getMockedRequest("Test.js", {instrument: "false"}));
-	t.false(toBeInstrumented);
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: "false"})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: "0"})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: "undefined"})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: "null"})));
+
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: false})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: 0})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: undefined})));
+	t.false(shouldInstrumentResource(getMockedRequest("Test.js", {instrument: null})));
 });
 
 test("shouldInstrumentResource: Resource flagged as instrumented, no excludes", (t) => {

@@ -120,7 +120,7 @@ function createReporterConfig(configuration = {}) {
  * @returns {boolean} True when <code>value</code> is falsy, false if not
  */
 function isFalsyValue(value) {
-	return [undefined, "false", "0", "null"].includes(value);
+	return [false, 0, undefined, null, "false", "0", "undefined", "null"].includes(value);
 }
 
 /**
