@@ -1,4 +1,4 @@
-# UI5 Middleware Instrumentation
+# UI5 Middleware Code Coverage
 
 This UI5 Tooling Server Middleware offeres code instrumentation powered by [istanbul](https://istanbul.js.org/). With that it's such easy to enable client-side coverage determination.
 
