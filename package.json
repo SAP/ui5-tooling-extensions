@@ -23,9 +23,17 @@
 		"type": "git",
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.4.2",
+		"@commitlint/config-conventional": "^17.4.2",
+		"husky": "^7.0.4"
+	},
 	"scripts": {
 		"depcheck": "npm run depcheck --workspaces --if-present",
+		"hooks:pre-push": "npm run lint:commit",
 		"lint": "npm run lint --workspaces --if-present",
+		"lint:commit": "commitlint -e",
+		"prepare": "node ./.husky/skip.js || husky install",
 		"test": "npm run test --workspaces --if-present",
 		"test:unit": "npm run test:unit --workspaces --if-present",
 		"test:unit:coverage": "npm run test:unit:coverage --workspaces --if-present",
