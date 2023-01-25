@@ -170,7 +170,7 @@ Defaults to:
 
 The middleware adds an HTTP endpoint to the development server.
 
-The custom middleware intercepts every `.js`-file before it is sent to the client. The file is then instrumented on-the-fly, including dynamic creation of a `sourcemap`.
+The custom middleware intercepts every `.js`-file before it is sent to the client. The file is then instrumented on the fly, including the dynamic creation of a `sourcemap`.
 
 The instrumented code and the `sourcemap` are subsequently delivered to the client instead of the original `.js`-file.
 
@@ -246,15 +246,15 @@ GET /.ui5/coverage/report/lcov
 
 ## Integration
 
-The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the configuration and the public API, developers could setup the middleware to suit their projects' needs.
+The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the configuration and the public API, developers could set up the middleware to suit their projects' needs.
 
 ### OpenUI5 QUnit Integration
 
-The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running,`qunit-coverage-istanbul.js` takes care of collect and stores the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards the code coverage is displayed in the test page.
+The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running,`qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
 
 ### Custom Integration
 
-Below is an example of sample scenario to integrate UI5 Middleware Instrumentation. 
+Below is an example of a sample scenario to integrate UI5 Middleware Instrumentation. 
 
 ```js
 // A module in the browser
@@ -265,7 +265,7 @@ const isMiddlewareAvailable = await fetch("/.ui5/coverage/ping", {
 
 if (isMiddlewareAvailable) {
   
-  const generateReports = await fetch("/.ui5/coverage/report", {
+  const generatedReports = await fetch("/.ui5/coverage/report", {
     method: "POST",
     body: JSON.stringify(window.__coverage__),
     headers: {
@@ -294,6 +294,7 @@ if (isMiddlewareAvailable) {
   }
 }
 ```
+
 
 ## Code of Conduct
 
