@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    outputs:
+      releases_created: ${{steps.release.outputs.releases_created}}
+      paths_released: ${{steps.release.outputs.paths_released}}
+    steps:
+    - uses: google-github-actions/release-please-action@v3
+      id: release
+      with:
+        command: manifest
+        token: ${{secrets.GH_OPENUI5BOT}}
+        monorepo-tags: true
+  publish-package:
+    needs: pull-request
+    if: ${{needs.pull-request.outputs.releases_created}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path_released: ${{fromJson(needs.pull-request.outputs.paths_released)}}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Use Node.js LTS 18.x
+      uses: actions/setup-node@v3.6.0
+      with:
+        node-version: 18.x
+    - name: Publish to NPM
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_OPENUI5BOT}}
+      run: |
+        cd ${{ matrix.path_released }}
+        npm publish --dry-run --workspaces false
