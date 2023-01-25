@@ -168,11 +168,132 @@ Defaults to:
 
 ## How it works
 
-The middleware adds an HTTP endpoint to the development server which is requested by the `qunit-coverage.js` module included in the `sap.ui.core` library.
+The middleware adds an HTTP endpoint to the development server.
 
 The custom middleware intercepts every `.js`-file before it is sent to the client. The file is then instrumented on-the-fly, including dynamic creation of a `sourcemap`.
 
 The instrumented code and the `sourcemap` are subsequently delivered to the client instead of the original `.js`-file.
+
+## API
+
+This is the REST API that's the underlying foundation of the middleware.
+
+**Note:** the `/.ui5/` path is reserved for UI5 Core modules and must not be used for third-party modules.
+
+---
+### GET `{path/to/resource}?instrument=true`
+
+A resource could be instrumented for code coverage by appending `?instrument=true` as a query parameter. **Note:** If a resource has already been excluded via `excludePatterns` in middleware's configuration, the query parameter would be ignored.
+
+**Example:**
+
+```js
+// OpenUI5
+
+GET /resources/sap/m/ComboBox.js?instrument=true
+GET /resources/sap/m/ComboBoxBase.js?instrument=true
+GET /resources/sap/m/ComboBoxBaseRenderer.js?instrument=true
+GET /resources/sap/m/ComboBoxRenderer.js?instrument=true
+GET /resources/sap/m/ComboBoxTextField.js?instrument=true
+GET /resources/sap/m/ComboBoxTextFieldRenderer.js?instrument=true
+```
+
+---
+
+### GET `/.ui5/coverage/ping`
+
+Healthcheck. Useful when checking for middleware's existence.
+
+**Example:**
+
+```js
+fetch("/.ui5/coverage/ping", {
+  method: "GET",
+});
+```
+
+---
+
+### POST `/.ui5/coverage/report`
+
+Sends `__coverage__` data to the middleware. A static report is generated with the provided data. Reports could be accessed via the `/.ui5/coverage/report/${reportType}` route. The available report types could be found [here](https://github.com/istanbuljs/istanbuljs/tree/73c25ce79f91010d1ff073aa6ff3fd01114f90db/packages/istanbul-reports/lib).  
+**Note:** report types could be defined and limited via middleware's configuration.
+
+**Example:**
+
+```js
+fetch("/.ui5/coverage/report", {
+  method: "POST",
+  body: JSON.stringify(window.__coverage__),
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+```
+
+---
+
+### GET `/.ui5/coverage/report/${reportType}`
+
+Returns the generated report(s) from the last generation via the `/.ui5/coverage/report` route.
+
+**Example:**
+
+```js
+GET /.ui5/coverage/report/html
+GET /.ui5/coverage/report/lcov
+```
+
+## Integration
+
+The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the configuration and the public API, developers could setup the middleware to suit their projects' needs.
+
+### OpenUI5 QUnit Integration
+
+The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running,`qunit-coverage-istanbul.js` takes care of collect and stores the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards the code coverage is displayed in the test page.
+
+### Custom Integration
+
+Below is an example of sample scenario to integrate UI5 Middleware Instrumentation. 
+
+```js
+// A module in the browser
+
+const isMiddlewareAvailable = await fetch("/.ui5/coverage/ping", {
+  method: "GET",
+});
+
+if (isMiddlewareAvailable) {
+  
+  const generateReports = await fetch("/.ui5/coverage/report", {
+    method: "POST",
+    body: JSON.stringify(window.__coverage__),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  // Extract the html report from the list of reports
+  const htmlReport = generatedReports.availableReports.find(
+    (report) => report.report === "html"
+  );
+  
+  if (htmlReport) {
+    
+    const body = document.body;
+    const iFrameElem = document.createElement("iframe");
+    
+    iFrameElem.src = "/.ui5/coverage/report/" + htmlReport.destination;
+    iFrameElem.style.border = "none";
+    iFrameElem.style.width = "100%";
+    iFrameElem.style.height = "100vh";
+    iFrameElem.sandbox = "allow-scripts";
+
+    body.appendChild(iFrameElem);
+    
+  }
+}
+```
 
 ## Code of Conduct
 
