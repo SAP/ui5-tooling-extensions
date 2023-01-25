@@ -16,5 +16,5 @@ updates:
   - flovogt
   versioning-strategy: increase
   commit-message:
-    prefix: "[DEPENDENCY] "
-    prefix-development: "[INTERNAL] "
+    prefix: "ci: "
+    prefix-development: "ci: "
