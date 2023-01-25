@@ -24,12 +24,7 @@
 	},
 	"type": "module",
 	"files": [
-		"CHANGELOG.md",
-		"README.md",
-		"../../CONTRIBUTING.md",
-		"lib/**",
-		"../../LICENSES/**",
-		"../../.reuse/**"
+		"lib/**"
 	],
 	"dependencies": {
 		"body-parser": "^1.20.1",
