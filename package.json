@@ -24,6 +24,9 @@
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
 	"scripts": {
+		"coverage": "npm run coverage --workspaces --if-present",
+		"depcheck": "npm run depcheck --workspaces --if-present",
+		"lint": "npm run lint --workspaces --if-present",
 		"test": "npm run test --workspaces --if-present"
 	},
 	"workspaces": [

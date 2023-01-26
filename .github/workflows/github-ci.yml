@@ -10,22 +10,32 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        version: [16, 18, 19]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     name: General checks and tests
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
 
     - uses: actions/checkout@v3
 
-    - name: Use Node.js LTS 16.x
-      uses: actions/setup-node@v3.6.0
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: ${{ matrix.version }}
 
     - name: Install dependencies
       run: npm ci
 
-    - name: Perform checks and tests
-      run: npm test
+    - name: Perfrom ESLint check
+      run: npm run lint
+
+    - name: Perform dependency check
+      run: npm run depcheck
+
+    - name: Run tests
+      run: npm run coverage
 
     - name: Send report to Coveralls for package @ui5/middleware-code-coverage
       uses: coverallsapp/github-action@1.1.3
