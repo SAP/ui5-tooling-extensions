@@ -217,6 +217,7 @@ fetch("/.ui5/coverage/ping", {
 ### POST `/.ui5/coverage/report`
 
 Sends `__coverage__` data to the middleware. A static report is generated with the provided data. Reports could be accessed via the `/.ui5/coverage/report/${reportType}` route. The available report types could be found [here](https://github.com/istanbuljs/istanbuljs/tree/73c25ce79f91010d1ff073aa6ff3fd01114f90db/packages/istanbul-reports/lib).  
+
 **Note:** report types could be defined and limited via middleware's configuration.
 
 **Example:**
@@ -294,7 +295,6 @@ if (isMiddlewareAvailable) {
   }
 }
 ```
-
 
 ## Code of Conduct
 
