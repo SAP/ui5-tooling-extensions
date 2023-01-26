@@ -16,5 +16,6 @@ updates:
   - flovogt
   versioning-strategy: increase
   commit-message:
-    prefix: "ci: "
-    prefix-development: "ci: "
+    prefix: "build(deps)"
+    prefix-development: "build(devdeps)"
+    include: "scope"
