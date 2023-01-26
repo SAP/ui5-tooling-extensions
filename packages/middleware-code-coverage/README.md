@@ -183,7 +183,7 @@ This is the REST API the underlying foundation of the middleware.
 ---
 ### GET `{path/to/resource}?instrument=true`
 
-A resource could be instrumented for code coverage by appending `?instrument=true` as a query parameter. **Note:** If a resource has already been excluded via `excludePatterns` in middleware's configuration, the query parameter would be ignored.
+A resource could be instrumented for code coverage by appending `?instrument=true` as a query parameter. **Note:** If a resource has already been excluded via `excludePatterns` in middleware's configuration, the query parameter is ignored.
 
 **Example:**
 
