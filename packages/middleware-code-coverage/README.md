@@ -254,7 +254,7 @@ The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests t
 
 ### Custom Integration
 
-Below is an example of a sample scenario to integrate UI5 Middleware Instrumentation. 
+Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage. 
 
 ```js
 // A module in the browser
