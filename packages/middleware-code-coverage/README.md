@@ -176,7 +176,7 @@ The instrumented code and the `sourcemap` are subsequently delivered to the clie
 
 ## API
 
-This is the REST API that's the underlying foundation of the middleware.
+This is the REST API the underlying foundation of the middleware.
 
 **Note:** the `/.ui5/` path is reserved for UI5 Core modules and must not be used for third-party modules.
 
