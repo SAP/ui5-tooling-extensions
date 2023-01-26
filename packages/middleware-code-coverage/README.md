@@ -250,7 +250,7 @@ The middleware is integrated into OpenUI5 out of the box, but it is not limited 
 
 ### OpenUI5 QUnit Integration
 
-The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running,`qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
+The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running, `qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
 
 ### Custom Integration
 
