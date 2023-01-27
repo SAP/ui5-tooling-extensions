@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    name: Unit and integration tests
+    name: Unit and Integration
     strategy:
       matrix:
         version: [16, 18, 19]
