@@ -7,11 +7,26 @@ import {spawn} from "node:child_process";
 
 const baseConfigPath = "test/integration/fixtures/config/";
 
+let install;
+
+function setup() {
+	if (!install) {
+		install = spawn(`npm i`, [], {
+			stdio: "inherit", // > don't include stdout in test output,
+			shell: true,
+			cwd: "test/integration/fixtures/ui5-app/",
+			detached: true, // this for being able to kill all subprocesses of above `ui5 serve` later
+		});
+	}
+	return install;
+}
+
 async function startUI5App(config = "./ui5.yaml") {
+	setup();
 	const configPath = path.resolve(config);
 	const port = await getPort();
 	// start ui5-app
-	const childProcess = spawn(`npm ci && npm start`, [
+	const childProcess = spawn(`npm start`, [
 		`-- --config ${configPath} --port ${port}`,
 	], {
 		stdio: "inherit", // > don't include stdout in test output,
