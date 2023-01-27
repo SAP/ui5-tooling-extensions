@@ -4,7 +4,7 @@
 	"description": "An OpenUI5 app",
 	"private": true,
 	"scripts": {
-		"start": "ui5 serve"
+		"start": "ui5 serve --verbose"
 	},
 	"devDependencies": {
 		"@ui5/cli": "^3.0.0-rc.4",
