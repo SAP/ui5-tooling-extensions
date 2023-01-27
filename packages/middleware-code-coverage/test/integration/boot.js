@@ -14,7 +14,7 @@ async function startUI5App(config = "./ui5.yaml") {
 	const childProcess = spawn(`npm i && npm start`, [
 		`-- --config ${configPath} --port ${port}`,
 	], {
-		// stdio: "inherit", // > don't include stdout in test output,
+		stdio: "inherit", // > don't include stdout in test output,
 		shell: true,
 		cwd: "test/integration/fixtures/ui5-app/",
 		detached: true, // this for being able to kill all subprocesses of above `ui5 serve` later
