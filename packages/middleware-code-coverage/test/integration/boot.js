@@ -31,7 +31,7 @@ async function startUI5App(config = "./ui5.yaml") {
 	const configPath = path.resolve(config);
 	const port = await getPort();
 	// start ui5-app
-	const childProcess = spawn(`npm start`, [
+	spawn(`npm start`, [
 		`-- --config ${configPath} --port ${port}`,
 	], {
 		stdio: "inherit", // > don't include stdout in test output,
@@ -42,35 +42,26 @@ async function startUI5App(config = "./ui5.yaml") {
 
 	await waitOn({resources: [`http://localhost:${port}`]});
 	const app = request(`http://localhost:${port}`);
-	return {childProcess, app};
-}
-
-function shutDownUI5App(childProcess) {
-	// kill all processes that are in the same pid group (see detached: true)
-	process.kill(-childProcess.pid);
+	return {app};
 }
 
 test.serial("Ping endpoint is up and running", async (t) => {
 	t.timeout(560000);
-	const {childProcess, app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
+	const {app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
 
 	const pingResponse = await app.get("/.ui5/coverage/ping");
 	t.is(pingResponse.status, 200, "Ping was successful");
 	t.is(pingResponse.type, "application/json", "Content-Type is correct");
 	t.truthy(pingResponse.body.version, "Version is valid");
-
-	shutDownUI5App(childProcess);
 });
 
 test.serial("Send coverage report", async (t) => {
 	t.timeout(560000);
 
-	const {childProcess, app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
+	const {app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
 
 	// TODO: send valid content to the report endpoint and check result
 	const reportResponse = await app.post("/.ui5/coverage/report");
 
 	t.is(reportResponse.type, "application/json", "Content-Type is correct");
-
-	shutDownUI5App(childProcess);
 });
