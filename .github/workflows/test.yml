@@ -1,4 +1,4 @@
-name: Unit and Integration Tests
+name: Tests
 
 on:
   push:
@@ -10,6 +10,7 @@ on:
 
 jobs:
   test:
+    name: Unit and integration tests
     strategy:
       matrix:
         version: [16, 18, 19]
