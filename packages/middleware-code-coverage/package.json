@@ -56,13 +56,13 @@
 		"wait-on": "^7.0.1"
 	},
 	"scripts": {
-		"test": "npm run lint && npm run coverage && npm run depcheck",
 		"lint": "eslint ./",
 		"depcheck": "depcheck --ignores ava,@istanbuljs/esm-loader-hook",
-		"unit": "ava",
-		"unit-verbose": "cross-env UI5_LOG_LVL=verbose ava --verbose --serial",
-		"unit-watch": "ava --watch",
-		"coverage": "nyc ava --node-arguments=\"--experimental-loader=@istanbuljs/esm-loader-hook\"",
-		"integration": "ava --config ava-integration.config.js"
+		"test": "npm run lint && npm run depcheck && npm run test:unit:coverage && npm run test:integration",
+		"test:unit": "ava",
+		"test:unit:coverage": "nyc ava --node-arguments=\"--experimental-loader=@istanbuljs/esm-loader-hook\"",
+		"test:unit:verbose": "cross-env UI5_LOG_LVL=verbose ava --verbose --serial",
+		"test:unit:watch": "ava --watch",
+		"test:integration": "ava --config ava-integration.config.js"
 	}
 }

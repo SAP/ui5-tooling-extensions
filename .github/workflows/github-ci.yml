@@ -34,8 +34,11 @@ jobs:
     - name: Perform dependency check
       run: npm run depcheck
 
-    - name: Run tests
-      run: npm run coverage
+    - name: Run unit tests
+      run: npm run test:unit:coverage
+
+    - name: Run integration tests
+      run: npm run test:integration
 
     - name: Send report to Coveralls for package @ui5/middleware-code-coverage
       uses: coverallsapp/github-action@1.1.3
