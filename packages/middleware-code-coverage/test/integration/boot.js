@@ -9,20 +9,25 @@ const baseConfigPath = "test/integration/fixtures/config/";
 
 let install;
 
-function setup() {
+async function setup() {
 	if (!install) {
-		install = spawn(`npm i`, [], {
+		const child = spawn(`npm i`, [], {
 			stdio: "inherit", // > don't include stdout in test output,
 			shell: true,
 			cwd: "test/integration/fixtures/ui5-app/",
 			detached: true, // this for being able to kill all subprocesses of above `ui5 serve` later
 		});
+
+		install = await new Promise( (resolve) => {
+			child.on("close", resolve);
+		});
 	}
+
 	return install;
 }
 
 async function startUI5App(config = "./ui5.yaml") {
-	setup();
+	await setup();
 	const configPath = path.resolve(config);
 	const port = await getPort();
 	// start ui5-app
