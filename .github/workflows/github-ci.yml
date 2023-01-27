@@ -1,4 +1,4 @@
-name: GitHub CI
+name: Linting, dependency check and unit tests
 
 on:
   push:
@@ -9,8 +9,7 @@ on:
       - main
 
 jobs:
-  test:
-    name: General checks and tests
+  checks:
     runs-on: ubuntu-latest
     steps:
 

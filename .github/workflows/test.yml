@@ -14,7 +14,6 @@ jobs:
       matrix:
         version: [16, 18, 19]
         os: [ubuntu-latest, windows-latest, macos-latest]
-    name: General checks and tests
     runs-on: ${{ matrix.os }}
     steps:
 
