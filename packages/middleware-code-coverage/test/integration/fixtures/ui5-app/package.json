@@ -7,7 +7,7 @@
 		"start": "ui5 serve"
 	},
 	"devDependencies": {
-		"@ui5/cli": "^3.0.0-rc.1",
-		"@ui5/middleware-code-coverage": "../../../"
+		"@ui5/cli": "^3.0.0-rc.4",
+		"@ui5/middleware-code-coverage": "../../../../"
 	}
 }
