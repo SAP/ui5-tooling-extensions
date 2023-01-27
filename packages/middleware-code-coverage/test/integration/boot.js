@@ -11,7 +11,7 @@ async function startUI5App(config = "./ui5.yaml") {
 	const configPath = path.resolve(config);
 	const port = await getPort();
 	// start ui5-app
-	const childProcess = spawn(`npm i && npm start`, [
+	const childProcess = spawn(`npm ci && npm start`, [
 		`-- --config ${configPath} --port ${port}`,
 	], {
 		stdio: "inherit", // > don't include stdout in test output,
