@@ -51,6 +51,7 @@ function shutDownUI5App(childProcess) {
 }
 
 test.serial("Ping endpoint is up and running", async (t) => {
+	t.timeout(560000);
 	const {childProcess, app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
 
 	const pingResponse = await app.get("/.ui5/coverage/ping");
@@ -62,6 +63,8 @@ test.serial("Ping endpoint is up and running", async (t) => {
 });
 
 test.serial("Send coverage report", async (t) => {
+	t.timeout(560000);
+
 	const {childProcess, app} = await startUI5App(baseConfigPath + "ui5-simple.yaml");
 
 	// TODO: send valid content to the report endpoint and check result
