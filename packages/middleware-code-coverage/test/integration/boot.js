@@ -11,7 +11,7 @@ let install;
 
 async function setup() {
 	if (!install) {
-		const child = spawn(`npm i`, [], {
+		const child = spawn(`npm i --install-links=false`, [], {
 			stdio: "inherit", // > don't include stdout in test output,
 			shell: true,
 			cwd: "test/integration/fixtures/ui5-app/",
