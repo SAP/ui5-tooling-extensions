@@ -18,7 +18,7 @@ async function setup() {
 			detached: true, // this for being able to kill all subprocesses of above `ui5 serve` later
 		});
 
-		install = await new Promise( (resolve) => {
+		install = new Promise( (resolve) => {
 			child.on("close", resolve);
 		});
 	}
