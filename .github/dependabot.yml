@@ -17,5 +17,5 @@ updates:
   versioning-strategy: increase
   commit-message:
     prefix: "build(deps)"
-    prefix-development: "build(devdeps)"
+    prefix-development: "build(deps-dev)"
     include: "scope"
