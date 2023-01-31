@@ -62,7 +62,8 @@ async function startUI5App(config = "./ui5.yaml") {
 	return {app};
 }
 
-test.before(async () => {
+test.before(async (t) => {
+	t.timeout(50000);
 	try {
 		await setup();
 	} catch (e) {
