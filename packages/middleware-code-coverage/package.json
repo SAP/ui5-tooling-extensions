@@ -52,8 +52,7 @@
 		"get-port": "^6.1.2",
 		"nyc": "^15.1.0",
 		"sinon": "^15.0.1",
-		"supertest": "^6.3.3",
-		"wait-on": "^7.0.1"
+		"supertest": "^6.3.3"
 	},
 	"scripts": {
 		"lint": "eslint ./",
