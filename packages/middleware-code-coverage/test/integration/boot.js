@@ -63,12 +63,8 @@ async function startUI5App(config = "./ui5.yaml") {
 }
 
 test.before(async (t) => {
-	t.timeout(50000);
-	try {
-		await setup();
-	} catch (e) {
-		throw new Error(`npm install failed. error: ${e.message}`);
-	}
+	t.timeout(500000);
+	await setup();
 });
 
 test.serial("Ping endpoint is up and running", async (t) => {
