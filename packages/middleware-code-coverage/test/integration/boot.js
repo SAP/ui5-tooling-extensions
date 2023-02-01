@@ -29,10 +29,7 @@ function setup() {
 function startUI5Server(configPath, port) {
 	const child = exec(`npm start`, [
 		`-- --config ${configPath} --port ${port}`,
-	], {
-		cwd: "test/integration/fixtures/ui5-app/",
-		shell: true
-	});
+	]);
 
 	return new Promise( (resolve, reject) => {
 		const onError = () => {
