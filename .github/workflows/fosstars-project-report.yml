@@ -13,4 +13,4 @@ jobs:
       - uses: SAP/fosstars-rating-core-action@v1.9.1
         with:
           report-branch: fosstars-report
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.GH_OPENUI5BOT }}"
