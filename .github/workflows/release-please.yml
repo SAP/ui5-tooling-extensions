@@ -5,7 +5,7 @@ on:
 name: release-please
 jobs:
   pull-request:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       releases_created: ${{steps.release.outputs.releases_created}}
       paths_released: ${{steps.release.outputs.paths_released}}
@@ -19,7 +19,7 @@ jobs:
   publish-package:
     needs: pull-request
     if: ${{needs.pull-request.outputs.releases_created}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         path_released: ${{fromJson(needs.pull-request.outputs.paths_released)}}
