@@ -1,6 +1,6 @@
 {
 	"name": "@ui5/middleware-code-coverage",
-	"version": "0.0.1-rc",
+	"version": "0.0.0",
 	"description": "UI5 Tooling middleware to instrument code coverage with Istanbul",
 	"author": {
 		"name": "SAP SE",
@@ -25,11 +25,8 @@
 	"type": "module",
 	"files": [
 		"CHANGELOG.md",
-		"README.md",
-		"../../CONTRIBUTING.md",
-		"lib/**",
-		"../../LICENSES/**",
-		"../../.reuse/**"
+		"ui5.yaml",
+		"lib/**"
 	],
 	"dependencies": {
 		"body-parser": "^1.20.1",

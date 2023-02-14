@@ -1,0 +1,8 @@
+{
+    "packages": {
+        "packages/middleware-code-coverage": {}
+    },
+    "pull-request-header": ":tractor: New release prepared",
+    "pull-request-title-pattern": "release:${component} v${version}",
+    "separate-pull-requests": true
+}
