@@ -16,5 +16,6 @@ updates:
   - flovogt
   versioning-strategy: increase
   commit-message:
-    prefix: "[DEPENDENCY] "
-    prefix-development: "[INTERNAL] "
+    prefix: "build(deps)"
+    prefix-development: "build(deps-dev)"
+    include: "scope"
