@@ -19,6 +19,6 @@
 				"test"
 			]
 		],
-		"body-max-line-length": [2, "always", 150]
+		"body-max-line-length": [2, "always", 160]
 	}
 }
