@@ -18,6 +18,7 @@
 				"style",
 				"test"
 			]
-		]
+		],
+		"body-max-line-length": [2, "always", 150]
 	}
 }
