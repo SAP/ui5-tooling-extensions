@@ -29,7 +29,7 @@
 		"lib/**"
 	],
 	"dependencies": {
-		"body-parser": "^1.20.1",
+		"body-parser": "^1.20.2",
 		"istanbul-lib-coverage": "^3.2.0",
 		"istanbul-lib-instrument": "^5.2.1",
 		"istanbul-lib-report": "^3.0.0",
