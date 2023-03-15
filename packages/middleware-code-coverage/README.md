@@ -1,6 +1,6 @@
 # UI5 Middleware Code Coverage
 
-This UI5 Tooling Server Middleware offeres code instrumentation powered by [istanbul](https://istanbul.js.org/). With that it's such easy to enable client-side coverage determination.
+This UI5 Tooling Server Middleware offers code instrumentation powered by [Istanbul](https://istanbul.js.org/). This makes it easy to enable client-side coverage determination.
 
 [![Coverage Status](https://coveralls.io/repos/github/SAP/ui5-tooling-extensions/badge.svg)](https://coveralls.io/github/SAP/ui5-tooling-extensions)
 [![OpenUI5 Community Slack (#tooling channel)](https://img.shields.io/badge/slack-join-44cc11.svg)](https://ui5-slack-invite.cfapps.eu10.hana.ondemand.com/)
@@ -13,7 +13,7 @@ This UI5 Tooling Server Middleware offeres code instrumentation powered by [ista
 This middleware requires UI5 Tooling v3 and is meant for UI5 1.114 and above.
 > **Warning**
 >
-> The `qunit-coverage-istanbul.js` module is planned to be part of OpenUI5 1.114.0, which is not released, yet. If you would like to try out the code coverage module beforehand, please use the nightly CDN version of UI5 when bootstrapping your tests.
+> The `qunit-coverage-istanbul.js` module is planned to be part of OpenUI5 1.114.0, which is not released yet. If you would like to try out the code coverage module beforehand, use the nightly CDN version of UI5 when bootstrapping your tests.
 
 ## Install
 
@@ -127,7 +127,7 @@ npm install @ui5/middleware-code-coverage --save-dev
 
 3. Execute `ui5 serve` in the project root folder
 
-4. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of choice
+4. Open "http://localhost:8080/test/unit/unitTests.qunit.html?coverage" in a browser of your choice
 
 5. Check the code coverage
   ![UI5 logo](./docs/images/sample-app-coverage-data.png)
@@ -140,7 +140,7 @@ npm install @ui5/middleware-code-coverage --save-dev
 
 `report` [Object]: Settings for the reporter.
 
-`report.reporter` [Array]: The report type(s) that would be generated. List of all the available reports could be found [here](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib). Defaults to `["html"]`.
+`report.reporter` [Array]: The report type(s) that would be generated. A list of all the available reports could be found [here](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib). Defaults to `["html"]`.
 
 `report["report-dir"]` [String]: Where the reports would be generated. Relative to `cwd`. Defaults to `"./tmp/coverage-reports"`.
 
@@ -157,7 +157,7 @@ Defaults to:
 }
 ```
 
-`instrument` [Object]: Settings for the instrumenter. Full set of the properties could be seen [here](https://github.com/istanbuljs/istanbuljs/blob/master/packages/istanbul-lib-instrument/src/instrumenter.js#L15).
+`instrument` [Object]: Settings for the instrumenter. A full set of properties could be seen [here](https://github.com/istanbuljs/istanbuljs/blob/master/packages/istanbul-lib-instrument/src/instrumenter.js#L15).
 
 Defaults to:
 
@@ -179,9 +179,9 @@ The instrumented code and the `sourcemap` are subsequently delivered to the clie
 
 ## API
 
-This is the REST API the underlying foundation of the middleware.
+This REST API is the underlying foundation of the middleware.
 
-**Note:** the `/.ui5/` path is reserved for UI5 Core modules and must not be used for third-party modules.
+**Note:** The `/.ui5/` path is reserved for UI5 Core modules and must not be used for third-party modules.
 
 ---
 ### GET `{path/to/resource}?instrument=true`
@@ -205,7 +205,7 @@ GET /resources/sap/m/ComboBoxTextFieldRenderer.js?instrument=true
 
 ### GET `/.ui5/coverage/ping`
 
-Healthcheck. Useful when checking for middleware's existence.
+Healthcheck. Useful when checking for the middleware's existence.
 
 **Example:**
 
@@ -221,7 +221,7 @@ fetch("/.ui5/coverage/ping", {
 
 Sends `__coverage__` data to the middleware. A static report is generated with the provided data. Reports could be accessed via the `/.ui5/coverage/report/${reportType}` route. The available report types could be found [here](https://github.com/istanbuljs/istanbuljs/tree/73c25ce79f91010d1ff073aa6ff3fd01114f90db/packages/istanbul-reports/lib).  
 
-**Note:** report types could be defined and limited via middleware's configuration.
+**Note:** Report types could be defined and limited via the middleware's configuration.
 
 **Example:**
 
@@ -254,11 +254,11 @@ The middleware is integrated into OpenUI5 out of the box, but it is not limited 
 
 ### OpenUI5 QUnit Integration
 
-The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running, `qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed `qunit-coverage-istanbul.js` sends this data to the middleware which generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
+The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running, `qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed, `qunit-coverage-istanbul.js` sends this data to the middleware, which then generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
 
 ### Custom Integration
 
-Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage. 
+Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage.
 
 ```js
 // A module in the browser
