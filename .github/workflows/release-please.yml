@@ -35,4 +35,4 @@ jobs:
         NODE_AUTH_TOKEN: ${{secrets.NPM_OPENUI5BOT}}
       run: |
         cd ${{ matrix.path_released }}
-        npm publish --dry-run --workspaces false
+        npm publish --workspaces false
