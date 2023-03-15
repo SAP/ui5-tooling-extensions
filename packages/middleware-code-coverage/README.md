@@ -10,7 +10,10 @@ This UI5 Tooling Server Middleware offeres code instrumentation powered by [ista
 
 ## Requirements
 
-This middleware requires UI5 Tooling Version 3 and above.
+This middleware requires UI5 Tooling v3 and is meant for UI5 1.114 and above.
+> **Warning**
+>
+> The `qunit-coverage-istanbul.js` module is planned to be part of OpenUI5 1.114.0, which is not released, yet. If you would like to try out the code coverage module beforehand, please use the nightly CDN version of UI5 when bootstrapping your tests.
 
 ## Install
 
