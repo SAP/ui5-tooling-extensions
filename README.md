@@ -2,7 +2,7 @@
 
 # ui5-tooling-extensions
 
-> A mono repository containing several packages that provide further capabilities for users of [UI5 Tooling](https://github.com/SAP/ui5-tooling).
+> A monorepo containing several packages that provide further capabilities for users of [UI5 Tooling](https://github.com/SAP/ui5-tooling).
 
 [![Coverage Status](https://coveralls.io/repos/github/SAP/ui5-tooling-extensions/badge.svg)](https://coveralls.io/github/SAP/ui5-tooling-extensions)
 [![OpenUI5 Community Slack (#tooling channel)](https://img.shields.io/badge/slack-join-44cc11.svg)](https://ui5-slack-invite.cfapps.eu10.hana.ondemand.com/)
