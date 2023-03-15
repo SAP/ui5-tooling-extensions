@@ -53,7 +53,7 @@ npm install @ui5/middleware-code-coverage --save-dev
           - "yet/another/dir"
     ```
 
-2. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istandbul.js` in your test html files
+2. Change the qunit coverage module `qunit-coverage.js` to `qunit-coverage-istanbul.js` in your test html files
 
     **Old:**
 

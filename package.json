@@ -15,7 +15,7 @@
 		"build",
 		"development",
 		"tool",
-		"istandbul",
+		"istanbul",
 		"code coverage"
 	],
 	"license": "Apache-2.0",
