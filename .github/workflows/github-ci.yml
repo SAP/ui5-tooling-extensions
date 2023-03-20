@@ -38,4 +38,4 @@ jobs:
       with:
         flag-name: middleware-code-coverage
         base-path: ./packages/middleware-code-coverage
-        path-to-lcov: ./packages/middleware-code-coverage/coverage/lcov.info
+        file: ./packages/middleware-code-coverage/coverage/lcov.info
