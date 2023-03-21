@@ -244,24 +244,25 @@
         }
       }
     },
-    "value" : 2.7567567567567566,
+    "value" : 6.373810444874274,
     "weight" : 1.0,
-    "confidence" : 3.1228070175438596,
+    "confidence" : 9.645390070921986,
     "usedValues" : [ {
       "type" : "ScoreValue",
       "score" : {
         "type" : "ProjectSecurityAwarenessScore",
         "name" : "How well open-source community is aware about security"
       },
-      "value" : 0.0,
+      "value" : 3.0,
       "weight" : 0.9,
-      "confidence" : 1.6666666666666667,
+      "confidence" : 10.0,
       "usedValues" : [ {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If an open-source project has a security policy"
         },
+        "flag" : true,
         "explanation" : [ ]
       }, {
         "type" : "BooleanValue",
@@ -272,11 +273,12 @@
         "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses signed commits"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
         "type" : "BooleanValue",
@@ -287,18 +289,20 @@
         "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project signs artifacts"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project has executable binaries"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
         "type" : "BooleanValue",
@@ -309,81 +313,92 @@
         "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses Dependabot"
         },
+        "flag" : true,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses Snyk"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses nohttp tool"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If an open-source project uses FindSecBugs"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses OWASP Enterprise Security API (ESAPI)"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses OWASP Java Encoder"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If a project uses OWASP Java HTML Sanitizer"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If an open-source project uses AddressSanitizer"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If an open-source project uses MemorySanitizer"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "BooleanValue",
         "feature" : {
           "type" : "BooleanFeature",
           "name" : "If an open-source project uses UndefinedBehaviorSanitizer"
         },
+        "flag" : false,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "OwaspDependencyCheckUsageValue",
         "feature" : {
           "type" : "OwaspDependencyCheckUsageFeature",
           "name" : "How OWASP Dependency Check is used"
         },
+        "value" : "NOT_USED",
         "explanation" : [ ]
       } ],
       "explanation" : [ ],
@@ -467,26 +482,28 @@
         "type" : "ProjectActivityScore",
         "name" : "Open-source project activity score"
       },
-      "value" : 0.0,
+      "value" : 6.3,
       "weight" : 0.5,
-      "confidence" : 0.0,
+      "confidence" : 10.0,
       "usedValues" : [ {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of commits in the last three months"
         },
+        "number" : 39,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of contributors in the last three months"
         },
+        "number" : 2,
         "explanation" : [ ]
       } ],
-      "explanation" : [ "A score value couldn't be calculated because the number of commits is unknown" ],
-      "isUnknown" : true,
+      "explanation" : [ "39 commits in the last 3 months results to 6.00 points", "2 contributors increase the score value from 6.00 to 6.30" ],
+      "isUnknown" : false,
       "isNotApplicable" : false,
       "feature" : {
         "type" : "ProjectActivityScore",
@@ -589,9 +606,9 @@
         },
         "name" : "Assesses security testing and vulnerability discovery"
       },
-      "value" : 2.0,
+      "value" : 10.0,
       "weight" : 0.6,
-      "confidence" : 5.5,
+      "confidence" : 10.0,
       "usedValues" : [ {
         "type" : "VulnerabilitiesValue",
         "feature" : {
@@ -695,58 +712,66 @@
             }
           }
         },
-        "value" : 0.0,
+        "value" : 9.09090909090909,
         "weight" : 1.0,
-        "confidence" : 1.0,
+        "confidence" : 10.0,
         "usedValues" : [ {
           "type" : "ScoreValue",
           "score" : {
             "type" : "DependencyScanScore",
             "name" : "How a project scans its dependencies for vulnerabilities"
           },
-          "value" : 0.0,
+          "value" : 10.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
             "type" : "ScoreValue",
             "score" : {
               "type" : "DependabotScore",
               "name" : "How a project uses Dependabot"
             },
-            "value" : 0.0,
+            "value" : 10.0,
             "weight" : 1.0,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project uses Dependabot"
               },
+              "flag" : true,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project uses GitHub as the main development platform"
               },
+              "flag" : true,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "PackageManagersValue",
               "feature" : {
                 "type" : "PackageManagersFeature",
                 "name" : "A set of package managers"
               },
+              "packageManagers" : {
+                "packageManagers" : [ "NPM", "YARN" ]
+              },
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
             "explanation" : [ ],
-            "isUnknown" : true,
+            "isUnknown" : false,
             "isNotApplicable" : false,
             "feature" : {
               "type" : "DependabotScore",
@@ -758,40 +783,48 @@
               "type" : "SnykDependencyScanScore",
               "name" : "How a project uses Snyk"
             },
-            "value" : 0.0,
+            "value" : 5.0,
             "weight" : 1.0,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project uses Snyk"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project uses GitHub as the main development platform"
               },
+              "flag" : true,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "PackageManagersValue",
               "feature" : {
                 "type" : "PackageManagersFeature",
                 "name" : "A set of package managers"
               },
+              "packageManagers" : {
+                "packageManagers" : [ "NPM", "YARN" ]
+              },
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
             "explanation" : [ ],
-            "isUnknown" : true,
+            "isUnknown" : false,
             "isNotApplicable" : false,
             "feature" : {
               "type" : "SnykDependencyScanScore",
@@ -805,39 +838,45 @@
             },
             "value" : 0.0,
             "weight" : 1.0,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "OwaspDependencyCheckUsageValue",
               "feature" : {
                 "type" : "OwaspDependencyCheckUsageFeature",
                 "name" : "How OWASP Dependency Check is used"
               },
+              "value" : "NOT_USED",
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "OwaspDependencyCheckCvssThresholdValue",
               "feature" : {
                 "type" : "OwaspDependencyCheckCvssThreshold",
                 "name" : "A CVSS threshold for OWASP Dependency Check to fail the build"
               },
+              "number" : 0.0,
+              "specified" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "PackageManagersValue",
               "feature" : {
                 "type" : "PackageManagersFeature",
                 "name" : "A set of package managers"
               },
+              "packageManagers" : {
+                "packageManagers" : [ "NPM", "YARN" ]
+              },
               "explanation" : [ ]
             } ],
             "explanation" : [ ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "OwaspDependencyScanScore",
               "name" : "How a project uses OWASP Dependency Check to scan dependencies for vulnerabilities"
             }
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "DependencyScanScore",
@@ -896,9 +935,9 @@
               }
             }
           },
-          "value" : 0.0,
+          "value" : 10.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 9.999999999999998,
           "usedValues" : [ {
             "type" : "ScoreValue",
             "score" : {
@@ -907,39 +946,45 @@
             },
             "value" : 0.0,
             "weight" : 0.3,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs GoSec scan checks for commits"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs GoSec scans"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs GoSec scans with rules"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
-            "explanation" : [ "The score value is unknown because all required features are unknown." ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "explanation" : [ "The score is N/A because the project uses languages that are not supported by GoSec." ],
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "GoSecScore",
               "name" : "How a project uses GoSec"
@@ -952,32 +997,37 @@
             },
             "value" : 0.0,
             "weight" : 0.35,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Bandit scan checks for commits"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Bandit scans"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
-            "explanation" : [ "The score value is unknown because all required features are unknown." ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "explanation" : [ "The score is N/A because the project uses languages that are not supported by Bandit." ],
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "BanditScore",
               "name" : "How a project uses Bandit"
@@ -990,25 +1040,29 @@
             },
             "value" : 0.0,
             "weight" : 0.35,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If an open-source project uses FindSecBugs"
               },
+              "flag" : false,
               "explanation" : [ ]
             } ],
             "explanation" : [ ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "FindSecBugsScore",
               "name" : "How a project uses FindSecBugs"
@@ -1019,33 +1073,38 @@
               "type" : "CodeqlScore",
               "name" : "How a project uses CodeQL"
             },
-            "value" : 0.0,
+            "value" : 10.0,
             "weight" : 1.0,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs CodeQL checks for commits"
               },
+              "flag" : true,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs CodeQL scans"
               },
+              "flag" : true,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
-            "explanation" : [ "The score value is unknown because all required features are unknown." ],
-            "isUnknown" : true,
+            "explanation" : [ ],
+            "isUnknown" : false,
             "isNotApplicable" : false,
             "feature" : {
               "type" : "CodeqlScore",
@@ -1059,32 +1118,37 @@
             },
             "value" : 0.0,
             "weight" : 0.35,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Pylint scan checks for commits"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Pylint scans"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
-            "explanation" : [ "The score value is unknown because all required features are unknown." ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "explanation" : [ "The score is N/A because the project uses languages that are not supported by Pylint." ],
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "PylintScore",
               "name" : "How a project uses Pylint"
@@ -1097,39 +1161,44 @@
             },
             "value" : 0.0,
             "weight" : 0.2,
-            "confidence" : 0.0,
+            "confidence" : 10.0,
             "usedValues" : [ {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Mypy scan checks for commits"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "BooleanValue",
               "feature" : {
                 "type" : "BooleanFeature",
                 "name" : "If a project runs Mypy scans"
               },
+              "flag" : false,
               "explanation" : [ ]
             }, {
-              "type" : "UnknownValue",
+              "type" : "LanguagesValue",
               "feature" : {
                 "type" : "LanguagesFeature",
                 "name" : "A set of programming languages"
               },
+              "languages" : {
+                "elements" : [ "JAVASCRIPT", "OTHER" ]
+              },
               "explanation" : [ ]
             } ],
-            "explanation" : [ "The score value is unknown because all required features are unknown." ],
-            "isUnknown" : true,
-            "isNotApplicable" : false,
+            "explanation" : [ "The score is N/A because the project uses languages that are not supported by MyPy." ],
+            "isUnknown" : false,
+            "isNotApplicable" : true,
             "feature" : {
               "type" : "MyPyScore",
               "name" : "How a project uses MyPy"
             }
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "StaticAnalysisScore",
@@ -1190,24 +1259,28 @@
           },
           "value" : 0.0,
           "weight" : 0.2,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project uses nohttp tool"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "PackageManagersValue",
             "feature" : {
               "type" : "PackageManagersFeature",
               "name" : "A set of package managers"
             },
+            "packageManagers" : {
+              "packageManagers" : [ "NPM", "YARN" ]
+            },
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "NoHttpToolScore",
@@ -1221,12 +1294,15 @@
           },
           "value" : 0.0,
           "weight" : 1.0,
-          "confidence" : 5.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
+            },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
             },
             "explanation" : [ ]
           }, {
@@ -1240,7 +1316,7 @@
           } ],
           "explanation" : [ ],
           "isUnknown" : false,
-          "isNotApplicable" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "FuzzingScore",
             "name" : "How a project uses fuzzing"
@@ -1253,39 +1329,45 @@
           },
           "value" : 0.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If an open-source project uses AddressSanitizer"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If an open-source project uses MemorySanitizer"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If an open-source project uses UndefinedBehaviorSanitizer"
             },
+            "flag" : false,
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "MemorySafetyTestingScore",
             "name" : "How a project tests for memory-safety issues"
@@ -1602,58 +1684,66 @@
           }
         }
       },
-      "value" : 0.0,
+      "value" : 9.09090909090909,
       "weight" : 1.0,
-      "confidence" : 1.0,
+      "confidence" : 10.0,
       "usedValues" : [ {
         "type" : "ScoreValue",
         "score" : {
           "type" : "DependencyScanScore",
           "name" : "How a project scans its dependencies for vulnerabilities"
         },
-        "value" : 0.0,
+        "value" : 10.0,
         "weight" : 1.0,
-        "confidence" : 0.0,
+        "confidence" : 10.0,
         "usedValues" : [ {
           "type" : "ScoreValue",
           "score" : {
             "type" : "DependabotScore",
             "name" : "How a project uses Dependabot"
           },
-          "value" : 0.0,
+          "value" : 10.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project uses Dependabot"
             },
+            "flag" : true,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project uses GitHub as the main development platform"
             },
+            "flag" : true,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "PackageManagersValue",
             "feature" : {
               "type" : "PackageManagersFeature",
               "name" : "A set of package managers"
             },
+            "packageManagers" : {
+              "packageManagers" : [ "NPM", "YARN" ]
+            },
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "DependabotScore",
@@ -1665,40 +1755,48 @@
             "type" : "SnykDependencyScanScore",
             "name" : "How a project uses Snyk"
           },
-          "value" : 0.0,
+          "value" : 5.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project uses Snyk"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project uses GitHub as the main development platform"
             },
+            "flag" : true,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "PackageManagersValue",
             "feature" : {
               "type" : "PackageManagersFeature",
               "name" : "A set of package managers"
             },
+            "packageManagers" : {
+              "packageManagers" : [ "NPM", "YARN" ]
+            },
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "SnykDependencyScanScore",
@@ -1712,39 +1810,45 @@
           },
           "value" : 0.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "OwaspDependencyCheckUsageValue",
             "feature" : {
               "type" : "OwaspDependencyCheckUsageFeature",
               "name" : "How OWASP Dependency Check is used"
             },
+            "value" : "NOT_USED",
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "OwaspDependencyCheckCvssThresholdValue",
             "feature" : {
               "type" : "OwaspDependencyCheckCvssThreshold",
               "name" : "A CVSS threshold for OWASP Dependency Check to fail the build"
             },
+            "number" : 0.0,
+            "specified" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "PackageManagersValue",
             "feature" : {
               "type" : "PackageManagersFeature",
               "name" : "A set of package managers"
             },
+            "packageManagers" : {
+              "packageManagers" : [ "NPM", "YARN" ]
+            },
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "OwaspDependencyScanScore",
             "name" : "How a project uses OWASP Dependency Check to scan dependencies for vulnerabilities"
           }
         } ],
         "explanation" : [ ],
-        "isUnknown" : true,
+        "isUnknown" : false,
         "isNotApplicable" : false,
         "feature" : {
           "type" : "DependencyScanScore",
@@ -1803,9 +1907,9 @@
             }
           }
         },
-        "value" : 0.0,
+        "value" : 10.0,
         "weight" : 1.0,
-        "confidence" : 0.0,
+        "confidence" : 9.999999999999998,
         "usedValues" : [ {
           "type" : "ScoreValue",
           "score" : {
@@ -1814,39 +1918,45 @@
           },
           "value" : 0.0,
           "weight" : 0.3,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs GoSec scan checks for commits"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs GoSec scans"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs GoSec scans with rules"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
-          "explanation" : [ "The score value is unknown because all required features are unknown." ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "explanation" : [ "The score is N/A because the project uses languages that are not supported by GoSec." ],
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "GoSecScore",
             "name" : "How a project uses GoSec"
@@ -1859,32 +1969,37 @@
           },
           "value" : 0.0,
           "weight" : 0.35,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Bandit scan checks for commits"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Bandit scans"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
-          "explanation" : [ "The score value is unknown because all required features are unknown." ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "explanation" : [ "The score is N/A because the project uses languages that are not supported by Bandit." ],
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "BanditScore",
             "name" : "How a project uses Bandit"
@@ -1897,25 +2012,29 @@
           },
           "value" : 0.0,
           "weight" : 0.35,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If an open-source project uses FindSecBugs"
             },
+            "flag" : false,
             "explanation" : [ ]
           } ],
           "explanation" : [ ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "FindSecBugsScore",
             "name" : "How a project uses FindSecBugs"
@@ -1926,33 +2045,38 @@
             "type" : "CodeqlScore",
             "name" : "How a project uses CodeQL"
           },
-          "value" : 0.0,
+          "value" : 10.0,
           "weight" : 1.0,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs CodeQL checks for commits"
             },
+            "flag" : true,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs CodeQL scans"
             },
+            "flag" : true,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
-          "explanation" : [ "The score value is unknown because all required features are unknown." ],
-          "isUnknown" : true,
+          "explanation" : [ ],
+          "isUnknown" : false,
           "isNotApplicable" : false,
           "feature" : {
             "type" : "CodeqlScore",
@@ -1966,32 +2090,37 @@
           },
           "value" : 0.0,
           "weight" : 0.35,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Pylint scan checks for commits"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Pylint scans"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
-          "explanation" : [ "The score value is unknown because all required features are unknown." ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "explanation" : [ "The score is N/A because the project uses languages that are not supported by Pylint." ],
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "PylintScore",
             "name" : "How a project uses Pylint"
@@ -2004,39 +2133,44 @@
           },
           "value" : 0.0,
           "weight" : 0.2,
-          "confidence" : 0.0,
+          "confidence" : 10.0,
           "usedValues" : [ {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Mypy scan checks for commits"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "BooleanValue",
             "feature" : {
               "type" : "BooleanFeature",
               "name" : "If a project runs Mypy scans"
             },
+            "flag" : false,
             "explanation" : [ ]
           }, {
-            "type" : "UnknownValue",
+            "type" : "LanguagesValue",
             "feature" : {
               "type" : "LanguagesFeature",
               "name" : "A set of programming languages"
             },
+            "languages" : {
+              "elements" : [ "JAVASCRIPT", "OTHER" ]
+            },
             "explanation" : [ ]
           } ],
-          "explanation" : [ "The score value is unknown because all required features are unknown." ],
-          "isUnknown" : true,
-          "isNotApplicable" : false,
+          "explanation" : [ "The score is N/A because the project uses languages that are not supported by MyPy." ],
+          "isUnknown" : false,
+          "isNotApplicable" : true,
           "feature" : {
             "type" : "MyPyScore",
             "name" : "How a project uses MyPy"
           }
         } ],
         "explanation" : [ ],
-        "isUnknown" : true,
+        "isUnknown" : false,
         "isNotApplicable" : false,
         "feature" : {
           "type" : "StaticAnalysisScore",
@@ -2097,24 +2231,28 @@
         },
         "value" : 0.0,
         "weight" : 0.2,
-        "confidence" : 0.0,
+        "confidence" : 10.0,
         "usedValues" : [ {
-          "type" : "UnknownValue",
+          "type" : "BooleanValue",
           "feature" : {
             "type" : "BooleanFeature",
             "name" : "If a project uses nohttp tool"
           },
+          "flag" : false,
           "explanation" : [ ]
         }, {
-          "type" : "UnknownValue",
+          "type" : "PackageManagersValue",
           "feature" : {
             "type" : "PackageManagersFeature",
             "name" : "A set of package managers"
           },
+          "packageManagers" : {
+            "packageManagers" : [ "NPM", "YARN" ]
+          },
           "explanation" : [ ]
         } ],
         "explanation" : [ ],
-        "isUnknown" : true,
+        "isUnknown" : false,
         "isNotApplicable" : false,
         "feature" : {
           "type" : "NoHttpToolScore",
@@ -2128,12 +2266,15 @@
         },
         "value" : 0.0,
         "weight" : 1.0,
-        "confidence" : 5.0,
+        "confidence" : 10.0,
         "usedValues" : [ {
-          "type" : "UnknownValue",
+          "type" : "LanguagesValue",
           "feature" : {
             "type" : "LanguagesFeature",
             "name" : "A set of programming languages"
+          },
+          "languages" : {
+            "elements" : [ "JAVASCRIPT", "OTHER" ]
           },
           "explanation" : [ ]
         }, {
@@ -2147,7 +2288,7 @@
         } ],
         "explanation" : [ ],
         "isUnknown" : false,
-        "isNotApplicable" : false,
+        "isNotApplicable" : true,
         "feature" : {
           "type" : "FuzzingScore",
           "name" : "How a project uses fuzzing"
@@ -2160,39 +2301,45 @@
         },
         "value" : 0.0,
         "weight" : 1.0,
-        "confidence" : 0.0,
+        "confidence" : 10.0,
         "usedValues" : [ {
-          "type" : "UnknownValue",
+          "type" : "LanguagesValue",
           "feature" : {
             "type" : "LanguagesFeature",
             "name" : "A set of programming languages"
           },
+          "languages" : {
+            "elements" : [ "JAVASCRIPT", "OTHER" ]
+          },
           "explanation" : [ ]
         }, {
-          "type" : "UnknownValue",
+          "type" : "BooleanValue",
           "feature" : {
             "type" : "BooleanFeature",
             "name" : "If an open-source project uses AddressSanitizer"
           },
+          "flag" : false,
           "explanation" : [ ]
         }, {
-          "type" : "UnknownValue",
+          "type" : "BooleanValue",
           "feature" : {
             "type" : "BooleanFeature",
             "name" : "If an open-source project uses MemorySanitizer"
           },
+          "flag" : false,
           "explanation" : [ ]
         }, {
-          "type" : "UnknownValue",
+          "type" : "BooleanValue",
           "feature" : {
             "type" : "BooleanFeature",
             "name" : "If an open-source project uses UndefinedBehaviorSanitizer"
           },
+          "flag" : false,
           "explanation" : [ ]
         } ],
         "explanation" : [ ],
-        "isUnknown" : true,
-        "isNotApplicable" : false,
+        "isUnknown" : false,
+        "isNotApplicable" : true,
         "feature" : {
           "type" : "MemorySafetyTestingScore",
           "name" : "How a project tests for memory-safety issues"
@@ -2298,22 +2445,24 @@
         "type" : "ProjectPopularityScore",
         "name" : "Open-source project popularity score"
       },
-      "value" : 0.0,
+      "value" : 0.032,
       "weight" : 0.5,
-      "confidence" : 0.0,
+      "confidence" : 6.666666666666667,
       "usedValues" : [ {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of stars for a GitHub repository"
         },
+        "number" : 2,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of watchers for a GitHub repository"
         },
+        "number" : 9,
         "explanation" : [ ]
       }, {
         "type" : "UnknownValue",
@@ -2324,7 +2473,7 @@
         "explanation" : [ ]
       } ],
       "explanation" : [ ],
-      "isUnknown" : true,
+      "isUnknown" : false,
       "isNotApplicable" : false,
       "feature" : {
         "type" : "ProjectPopularityScore",
@@ -2578,5 +2727,5 @@
       }
     }
   },
-  "label" : [ "OssSecurityRating$SecurityLabel", "UNCLEAR" ]
+  "label" : [ "OssSecurityRating$SecurityLabel", "GOOD" ]
 }
