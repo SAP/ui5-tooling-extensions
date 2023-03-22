@@ -32,7 +32,7 @@ jobs:
         node-version: 18.x
     - name: Publish to NPM
       env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_OPENUI5BOT}}
+        NPM_AUTH_TOKEN: ${{secrets.NPM_UI5BOT}}
       run: |
         cd ${{ matrix.path_released }}
         npm publish --workspaces false
