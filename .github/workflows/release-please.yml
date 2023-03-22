@@ -36,4 +36,4 @@ jobs:
       run: |
         cd ${{ matrix.path_released }}
         echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> ./.npmrc
-        npm publish --workspaces false
+        npm publish --workspaces false --access public
