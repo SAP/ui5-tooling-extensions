@@ -42,6 +42,8 @@ export default async function({log, middlewareUtil, options={}, resources}) {
 		...generalConfig
 	} = config;
 
+	const {version: middlewareVersion} = await readJsonFile(new URL("../package.json", import.meta.url));
+
 	// Instrumenter instance
 	const instrumenter = createInstrumenter(instrumenterConfig);
 	const instrument = promisify(instrumenter.instrument.bind(instrumenter));
@@ -84,8 +86,9 @@ export default async function({log, middlewareUtil, options={}, resources}) {
 	 * Endpoint to check for middleware existence
 	 */
 	router.get("/.ui5/coverage/ping", async (req, res) => {
-		const {version} = await readJsonFile("./package.json");
-		res.json({version});
+		res.json({
+			version: middlewareVersion
+		});
 	});
 
 	/**
