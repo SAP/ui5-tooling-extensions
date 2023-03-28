@@ -1,11 +1,6 @@
 import test from "ava";
 import sinon from "sinon";
-import {createRequire} from "node:module";
 import esmock from "esmock";
-
-// Using CommonsJS require as importing json files causes an ExperimentalWarning
-const require = createRequire(import.meta.url);
-const packageJson = require("../../../package.json");
 
 const sampleJS = `sap.ui.define([
 "sap/ui/core/mvc/Controller",
@@ -49,21 +44,30 @@ const middlewareUtil = {
 };
 
 test.beforeEach(async (t) => {
-	t.context.instrumenterMiddleware = await esmock("../../../lib/middleware.js");
+	t.context.readJsonFile = sinon.stub().resolves({version: "0.0.0-test"});
+	t.context.instrumenterMiddleware = await esmock("../../../lib/middleware.js", {
+		"../../../lib/util.js": {
+			readJsonFile: t.context.readJsonFile
+		}
+	});
 });
 
 test("Ping request", async (t) => {
-	const {instrumenterMiddleware} = t.context;
+	const {instrumenterMiddleware, readJsonFile} = t.context;
 	const middleware = await instrumenterMiddleware({resources});
 
-	t.plan(3);
+	t.plan(6);
+
+	t.is(readJsonFile.callCount, 1, "package.json should be read once during middleware initialization");
+	t.deepEqual(readJsonFile.getCall(0).args, [new URL("../../../package.json", import.meta.url)]);
 
 	await new Promise((resolve) => {
 		const res = {
 			json: function(body) {
 				t.is(Object.keys(body).length, 1);
 				t.is(Object.keys(body)[0], "version");
-				t.is(body.version, packageJson.version, "The version is returned");
+				t.is(body.version, "0.0.0-test", "The version is returned");
+				t.is(readJsonFile.callCount, 1, "package.json should not be read again per request");
 				resolve();
 			}
 		};
