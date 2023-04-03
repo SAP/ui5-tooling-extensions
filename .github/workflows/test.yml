@@ -13,7 +13,7 @@ jobs:
     name: Unit and Integration
     strategy:
       matrix:
-        version: [16, 18, 19.5.0]
+        version: [16, 18, 19]
         os: [ubuntu-22.04, windows-2022, macos-12]
     runs-on: ${{ matrix.os }}
     steps:
