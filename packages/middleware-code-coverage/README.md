@@ -169,6 +169,10 @@ Defaults to:
 }
 ```
 
+## Sample
+
+You find this middleware in action in an adjustded version of the [OpenUI5 Sample App](https://github.com/SAP/openui5-sample-app/tree/middleware-code-coverage).
+
 ## How it works
 
 The middleware adds an HTTP endpoint to the development server.
