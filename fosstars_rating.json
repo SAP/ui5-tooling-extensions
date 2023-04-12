@@ -244,9 +244,9 @@
         }
       }
     },
-    "value" : 6.766109953875911,
+    "value" : 6.7678175370728555,
     "weight" : 1.0,
-    "confidence" : 9.645390070921986,
+    "confidence" : 10.0,
     "usedValues" : [ {
       "type" : "ScoreValue",
       "score" : {
@@ -482,7 +482,7 @@
         "type" : "ProjectActivityScore",
         "name" : "Open-source project activity score"
       },
-      "value" : 9.984615384615385,
+      "value" : 10.0,
       "weight" : 0.5,
       "confidence" : 10.0,
       "usedValues" : [ {
@@ -491,7 +491,7 @@
           "type" : "PositiveIntegerFeature",
           "name" : "Number of commits in the last three months"
         },
-        "number" : 59,
+        "number" : 63,
         "explanation" : [ ]
       }, {
         "type" : "IntegerValue",
@@ -502,7 +502,7 @@
         "number" : 3,
         "explanation" : [ ]
       } ],
-      "explanation" : [ "59 commits in the last 3 months results to 9.08 points", "3 contributors increase the score value from 9.08 to 9.98" ],
+      "explanation" : [ "63 commits in the last 3 months results to 9.69 points", "3 contributors increase the score value from 9.69 to 10.66" ],
       "isUnknown" : false,
       "isNotApplicable" : false,
       "feature" : {
@@ -2445,9 +2445,9 @@
         "type" : "ProjectPopularityScore",
         "name" : "Open-source project popularity score"
       },
-      "value" : 0.034999999999999996,
+      "value" : 0.035666666666666666,
       "weight" : 0.5,
-      "confidence" : 6.666666666666667,
+      "confidence" : 10.0,
       "usedValues" : [ {
         "type" : "IntegerValue",
         "feature" : {
@@ -2465,11 +2465,12 @@
         "number" : 9,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of projects on GitHub that use an open source project"
         },
+        "number" : 1,
         "explanation" : [ ]
       } ],
       "explanation" : [ ],
