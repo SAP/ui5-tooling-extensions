@@ -6,9 +6,11 @@ on:
         required: true
         type: string
       package-folder:
-        description: 'The folder name of the package'
+        description: 'The package to be released'
         required: true
-        type: string
+        type: choice
+        options:
+          - middleware-code-coverage
   push:
     branches:
       - main
