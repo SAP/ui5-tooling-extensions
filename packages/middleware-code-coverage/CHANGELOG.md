@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.1...middleware-code-coverage-v1.0.2) (2023-04-14)
+
+
+### Bug Fixes
+
+* **deps:** bump xml2js from 0.4.23 to 0.5.0 ([#77](https://github.com/SAP/ui5-tooling-extensions/issues/77)) ([300d62e](https://github.com/SAP/ui5-tooling-extensions/commit/300d62ebc44e404e0fcea07168bff72b46455628))
+
 ## [1.0.1](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.0...middleware-code-coverage-v1.0.1) (2023-03-28)
 
 
