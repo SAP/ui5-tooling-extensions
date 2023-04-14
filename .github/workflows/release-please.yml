@@ -1,7 +1,14 @@
 on:
+  workflow_dispatch:
+    inputs:
+      new-version:
+        description: 'The semver version of the new release'
+        required: true
+        type: string
   push:
     branches:
       - main
+
 name: release-please
 jobs:
   pull-request:
@@ -16,6 +23,7 @@ jobs:
         command: manifest
         token: ${{secrets.GH_OPENUI5BOT}}
         monorepo-tags: true
+        release-as: ${{ inputs.new-version }}
   publish-package:
     needs: pull-request
     if: ${{needs.pull-request.outputs.releases_created}}
