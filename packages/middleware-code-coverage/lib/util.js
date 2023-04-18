@@ -158,6 +158,12 @@ async function excludePatterns(resources) {
 			for (let j = 0; j < oCoverage.exclude.length; j++) {
 				const oExclude = oCoverage.exclude[j];
 
+				// Excludes marked with 'external="true"' are intended for a library local
+				// instrumentation only and should be ignored in a multi-library scenario
+				if (oExclude.$.external === "true") {
+					continue;
+				}
+
 				let sPattern = oExclude.$.name;
 
 				// normalize the pattern

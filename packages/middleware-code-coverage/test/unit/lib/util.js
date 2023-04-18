@@ -138,6 +138,7 @@ test("createInstrumentationConfig: .library excludes", async (t) => {
 			<exclude name="/my-file" />
 			<exclude name="ui5.customlib.utils." />
 			<exclude name="ui5.customlib.Control1" />
+			<exclude name="sap.m." external="true"/>
 		</jscoverage>
 	</appData>
 </library>`;
