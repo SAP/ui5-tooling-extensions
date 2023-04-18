@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.2...middleware-code-coverage-v1.0.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* **middleware-code-coverage:** ignore excludes marked as 'external' ([#82](https://github.com/SAP/ui5-tooling-extensions/issues/82)) ([7daeaea](https://github.com/SAP/ui5-tooling-extensions/commit/7daeaea7634013148b8784e94357b60968b718d7))
+
 ## [1.0.2](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.1...middleware-code-coverage-v1.0.2) (2023-04-14)
 
 
