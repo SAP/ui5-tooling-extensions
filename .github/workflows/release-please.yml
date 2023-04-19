@@ -1,4 +1,16 @@
 on:
+  workflow_dispatch:
+    inputs:
+      new-version:
+        description: 'The semver version of the new release'
+        required: true
+        type: string
+      package-folder:
+        description: 'The package to be released'
+        required: true
+        type: choice
+        options:
+          - middleware-code-coverage
   push:
     branches:
       - main
@@ -16,6 +28,8 @@ jobs:
         command: manifest
         token: ${{secrets.GH_OPENUI5BOT}}
         monorepo-tags: true
+        release-as: ${{ inputs.new-version }}
+        path: packages/${{ inputs.package-folder }}
   publish-package:
     needs: pull-request
     if: ${{needs.pull-request.outputs.releases_created}}
