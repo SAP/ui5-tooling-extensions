@@ -171,7 +171,7 @@ Defaults to:
 
 ## Sample
 
-You find this middleware in action in an adjustded version of the [OpenUI5 Sample App](https://github.com/SAP/openui5-sample-app/tree/middleware-code-coverage).
+You find this middleware in action in an adjusted version of the [OpenUI5 Sample App (branch `middleware-code-coverage`)](https://github.com/SAP/openui5-sample-app/tree/middleware-code-coverage).
 
 ## How it works
 
