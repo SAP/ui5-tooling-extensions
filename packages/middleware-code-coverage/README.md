@@ -8,6 +8,10 @@ This UI5 Tooling Server Middleware offers code instrumentation powered by [Istan
 [![Fosstars security rating](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_badge.svg)](https://github.com/SAP/ui5-tooling-extensions/blob/fosstars-report/fosstars_report.md)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/ui5-tooling-extensions)](https://api.reuse.software/info/github.com/SAP/ui5-tooling-extensions)
 
+## Sample
+
+You find this middleware in action in an adjusted version of the [OpenUI5 Sample App (branch `middleware-code-coverage`)](https://github.com/SAP/openui5-sample-app/tree/middleware-code-coverage).
+
 ## Requirements
 
 This middleware requires UI5 Tooling v3 and is meant for UI5 1.113 and above.
