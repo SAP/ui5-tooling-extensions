@@ -24,7 +24,7 @@
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.1",
+		"@commitlint/cli": "^17.6.3",
 		"@commitlint/config-conventional": "^17.6.1",
 		"husky": "^8.0.3"
 	},
