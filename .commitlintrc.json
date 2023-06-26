@@ -9,6 +9,7 @@
 			[
 				"build",
 				"ci",
+				"deps",
 				"docs",
 				"feat",
 				"fix",
