@@ -18,5 +18,5 @@ updates:
   - flovogt
   versioning-strategy: increase
   commit-message:
-    prefix: "build(deps)"
+    prefix: "deps"
     prefix-development: "build(deps-dev)"
