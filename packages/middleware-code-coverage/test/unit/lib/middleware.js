@@ -2,6 +2,11 @@ import test from "ava";
 import sinon from "sinon";
 import esmock from "esmock";
 
+// Node.js itself tries to parse sourceMappingURLs in all JavaScript files. This is unwanted and might even lead to
+// obscure errors when dynamically generating Data-URI soruceMappingURL values.
+// Therefore use this constant to never write the actual string.
+const SOURCE_MAPPING_URL = "//" + "# sourceMappingURL";
+
 const sampleJS = `sap.ui.define([
 "sap/ui/core/mvc/Controller",
 "sap/m/MessageToast"
@@ -201,7 +206,7 @@ test("Instrument resources request with source map", async (t) => {
 			end(resource) {
 				t.true(resource.includes("path=\"/resources/lib1/Control1.js\""), "Instrumented resource is correct");
 				t.true(resource.includes(
-					"//# sourceMappingURL=data:application/json;charset=utf-8;base64,",
+					`${SOURCE_MAPPING_URL}=data:application/json;charset=utf-8;base64,`,
 					"Instrumented resource contains source map"
 				));
 				t.is(log.verbose.callCount, 3);
@@ -241,7 +246,7 @@ test("Instrument resources request with source map: manual enablement", async (t
 			end(resource) {
 				t.true(resource.includes("path=\"/resources/lib1/Control1.js\""), "Instrumented resource is correct");
 				t.true(resource.includes(
-					"//# sourceMappingURL=data:application/json;charset=utf-8;base64,",
+					`${SOURCE_MAPPING_URL}=data:application/json;charset=utf-8;base64,`,
 					"Instrumented resource contains source map"
 				));
 				t.is(log.verbose.callCount, 3);
@@ -282,7 +287,7 @@ test("Instrument resources request without source map", async (t) => {
 			end(resource) {
 				t.true(resource.includes("path=\"/resources/lib1/Control1.js\""), "Instrumented resource is correct");
 				t.false(resource.includes(
-					"//# sourceMappingURL=data:application/json;charset=utf-8;base64,",
+					`${SOURCE_MAPPING_URL}=data:application/json;charset=utf-8;base64,`,
 					"Instrumented resource contains no source map"
 				));
 				t.is(log.verbose.callCount, 2);

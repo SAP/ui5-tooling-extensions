@@ -6,6 +6,10 @@ import {
 	shouldInstrumentResource
 } from "../../../lib/util.js";
 
+// Node.js itself tries to parse sourceMappingURLs in all JavaScript files. This is unwanted and might even lead to
+// obscure errors when dynamically generating Data-URI soruceMappingURL values.
+// Therefore use this constant to never write the actual string.
+const SOURCE_MAPPING_URL = "//" + "# sourceMappingURL";
 
 function getMockedRequest(path="", query={}) {
 	return {
@@ -275,7 +279,7 @@ test("getLatestSourceMap", (t) => {
 
 	t.is(sourcemap,
 		// eslint-disable-next-line max-len
-		"\r\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,InNhcC51aS5kZWZpbmUoW1wibGlicmFyeS9kL3NvbWVcIl0sKG4pID0+IHtvKG4pe3ZhciBvPW47Y29uc29sZS5sb2cobyl9bygpfSk7Ig=="
+		`\r\n${SOURCE_MAPPING_URL}=data:application/json;charset=utf-8;base64,InNhcC51aS5kZWZpbmUoW1wibGlicmFyeS9kL3NvbWVcIl0sKG4pID0+IHtvKG4pe3ZhciBvPW47Y29uc29sZS5sb2cobyl9bygpfSk7Ig==`
 	);
 });
 
