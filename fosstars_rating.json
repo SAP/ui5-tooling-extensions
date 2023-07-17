@@ -244,9 +244,9 @@
         }
       }
     },
-    "value" : 6.496876456876457,
+    "value" : 6.4611535981748744,
     "weight" : 1.0,
-    "confidence" : 9.645390070921986,
+    "confidence" : 10.0,
     "usedValues" : [ {
       "type" : "ScoreValue",
       "score" : {
@@ -1539,7 +1539,7 @@
         "type" : "ProjectActivityScore",
         "name" : "Open-source project activity score"
       },
-      "value" : 7.446153846153847,
+      "value" : 7.107692307692308,
       "weight" : 0.5,
       "confidence" : 10.0,
       "usedValues" : [ {
@@ -1548,7 +1548,7 @@
           "type" : "PositiveIntegerFeature",
           "name" : "Number of commits in the last three months"
         },
-        "number" : 44,
+        "number" : 42,
         "explanation" : [ ]
       }, {
         "type" : "IntegerValue",
@@ -1559,7 +1559,7 @@
         "number" : 3,
         "explanation" : [ ]
       } ],
-      "explanation" : [ "44 commits in the last 3 months results to 6.77 points", "3 contributors increase the score value from 6.77 to 7.45" ],
+      "explanation" : [ "42 commits in the last 3 months results to 6.46 points", "3 contributors increase the score value from 6.46 to 7.11" ],
       "isUnknown" : false,
       "isNotApplicable" : false,
       "feature" : {
@@ -1597,9 +1597,9 @@
         "type" : "ProjectPopularityScore",
         "name" : "Open-source project popularity score"
       },
-      "value" : 0.042666666666666665,
+      "value" : 0.04533333333333333,
       "weight" : 0.5,
-      "confidence" : 6.666666666666667,
+      "confidence" : 10.0,
       "usedValues" : [ {
         "type" : "IntegerValue",
         "feature" : {
@@ -1617,11 +1617,12 @@
         "number" : 11,
         "explanation" : [ ]
       }, {
-        "type" : "UnknownValue",
+        "type" : "IntegerValue",
         "feature" : {
           "type" : "PositiveIntegerFeature",
           "name" : "Number of projects on GitHub that use an open source project"
         },
+        "number" : 4,
         "explanation" : [ ]
       } ],
       "explanation" : [ ],
