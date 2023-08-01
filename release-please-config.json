@@ -23,6 +23,10 @@
 			"section": "Dependencies"
 		},
 		{
+			"type": "revert",
+			"section": "Reverts"
+		},
+		{
 			"type": "docs",
 			"section": "Documentation",
 			"hidden": true
