@@ -244,7 +244,7 @@
         }
       }
     },
-    "value" : 6.444039577443833,
+    "value" : 4.4728299360214265,
     "weight" : 1.0,
     "confidence" : 9.645390070921987,
     "usedValues" : [ {
@@ -501,7 +501,7 @@
           }
         }
       },
-      "value" : 9.09090909090909,
+      "value" : 4.545454545454545,
       "weight" : 1.0,
       "confidence" : 10.0,
       "usedValues" : [ {
@@ -724,7 +724,7 @@
             }
           }
         },
-        "value" : 10.0,
+        "value" : 0.0,
         "weight" : 1.0,
         "confidence" : 9.999999999999998,
         "usedValues" : [ {
@@ -862,7 +862,7 @@
             "type" : "CodeqlScore",
             "name" : "How a project uses CodeQL"
           },
-          "value" : 10.0,
+          "value" : 0.0,
           "weight" : 1.0,
           "confidence" : 10.0,
           "usedValues" : [ {
@@ -871,7 +871,7 @@
               "type" : "BooleanFeature",
               "name" : "If a project runs CodeQL checks for commits"
             },
-            "flag" : true,
+            "flag" : false,
             "explanation" : [ ]
           }, {
             "type" : "BooleanValue",
@@ -879,7 +879,7 @@
               "type" : "BooleanFeature",
               "name" : "If a project runs CodeQL scans"
             },
-            "flag" : true,
+            "flag" : false,
             "explanation" : [ ]
           }, {
             "type" : "LanguagesValue",
@@ -1330,7 +1330,7 @@
         "type" : "ProjectActivityScore",
         "name" : "Open-source project activity score"
       },
-      "value" : 6.946153846153846,
+      "value" : 7.107692307692308,
       "weight" : 0.5,
       "confidence" : 10.0,
       "usedValues" : [ {
@@ -1339,7 +1339,7 @@
           "type" : "PositiveIntegerFeature",
           "name" : "Number of commits in the last three months"
         },
-        "number" : 43,
+        "number" : 44,
         "explanation" : [ ]
       }, {
         "type" : "IntegerValue",
@@ -1350,7 +1350,7 @@
         "number" : 2,
         "explanation" : [ ]
       } ],
-      "explanation" : [ "43 commits in the last 3 months results to 6.62 points", "2 contributors increase the score value from 6.62 to 6.95" ],
+      "explanation" : [ "44 commits in the last 3 months results to 6.77 points", "2 contributors increase the score value from 6.77 to 7.11" ],
       "isUnknown" : false,
       "isNotApplicable" : false,
       "feature" : {
@@ -1519,7 +1519,7 @@
         },
         "name" : "Assesses security testing and vulnerability discovery"
       },
-      "value" : 10.0,
+      "value" : 2.0,
       "weight" : 0.6,
       "confidence" : 10.0,
       "usedValues" : [ {
@@ -1625,7 +1625,7 @@
             }
           }
         },
-        "value" : 9.09090909090909,
+        "value" : 4.545454545454545,
         "weight" : 1.0,
         "confidence" : 10.0,
         "usedValues" : [ {
@@ -1848,7 +1848,7 @@
               }
             }
           },
-          "value" : 10.0,
+          "value" : 0.0,
           "weight" : 1.0,
           "confidence" : 9.999999999999998,
           "usedValues" : [ {
@@ -1986,7 +1986,7 @@
               "type" : "CodeqlScore",
               "name" : "How a project uses CodeQL"
             },
-            "value" : 10.0,
+            "value" : 0.0,
             "weight" : 1.0,
             "confidence" : 10.0,
             "usedValues" : [ {
@@ -1995,7 +1995,7 @@
                 "type" : "BooleanFeature",
                 "name" : "If a project runs CodeQL checks for commits"
               },
-              "flag" : true,
+              "flag" : false,
               "explanation" : [ ]
             }, {
               "type" : "BooleanValue",
@@ -2003,7 +2003,7 @@
                 "type" : "BooleanFeature",
                 "name" : "If a project runs CodeQL scans"
               },
-              "flag" : true,
+              "flag" : false,
               "explanation" : [ ]
             }, {
               "type" : "LanguagesValue",
@@ -2727,5 +2727,5 @@
       }
     }
   },
-  "label" : [ "OssSecurityRating$SecurityLabel", "GOOD" ]
+  "label" : [ "OssSecurityRating$SecurityLabel", "MODERATE" ]
 }
