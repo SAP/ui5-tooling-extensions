@@ -282,7 +282,15 @@ if (isMiddlewareAvailable) {
   
   const generatedReports = await fetch("/.ui5/coverage/report", {
     method: "POST",
-    body: JSON.stringify(window.__coverage__),
+    body: JSON.stringify({
+      coverage: window.__coverage__,
+      watermarks: { // Optional: report setting
+        statements: [75, 90],
+        functions: [75, 90],
+        branches: [75, 90],
+        lines: [75, 90]
+      }
+    }),
     headers: {
       "Content-Type": "application/json",
     },
