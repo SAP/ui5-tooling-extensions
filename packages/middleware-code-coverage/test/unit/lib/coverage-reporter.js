@@ -1,7 +1,6 @@
 import test from "ava";
-import sinon from "sinon";
-import libReport from "istanbul-lib-report";
-import coverageReporter from "../../../lib/coverage-reporter.js";
+import esmock from "esmock";
+import sinonGlobal from "sinon";
 import {createInstrumentationConfig} from "../../../lib/util.js";
 
 const coverageData = {
@@ -89,7 +88,21 @@ formatMessage(message) {
 	}
 };
 
+test.beforeEach(async (t) => {
+	t.context.sinon = sinonGlobal.createSandbox();
+
+	t.context.libReport = await esmock("istanbul-lib-report");
+	t.context.coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
+		"istanbul-lib-report": t.context.libReport
+	});
+});
+
+test.afterEach.always((t) => {
+	t.context.sinon.restore();
+});
+
 test("Report Coverage", async (t) => {
+	const {coverageReporter} = t.context;
 	const expectedConfig = {
 		availableReports: [{
 			destination: "html/",
@@ -106,6 +119,7 @@ test("Report Coverage", async (t) => {
 });
 
 test("Report Coverage (old structure)", async (t) => {
+	const {coverageReporter} = t.context;
 	const expectedConfig = {
 		availableReports: [{
 			destination: "html/",
@@ -122,6 +136,7 @@ test("Report Coverage (old structure)", async (t) => {
 });
 
 test("Report Coverage: lcov reporter", async (t) => {
+	const {coverageReporter} = t.context;
 	const expectedConfig = {
 		availableReports: [{
 			destination: "lcov/lcov.info",
@@ -146,6 +161,7 @@ test("Report Coverage: lcov reporter", async (t) => {
 
 
 test("Report Coverage: Log warning if resource can not be found", async (t) => {
+	const {sinon, coverageReporter} = t.context;
 	const expectedConfig = {
 		availableReports: [{
 			destination: "html/",
@@ -177,9 +193,10 @@ test("Report Coverage: Log warning if resource can not be found", async (t) => {
 });
 
 test("Report Coverage: Fronted config for watermarks", async (t) => {
+	const {sinon, coverageReporter, libReport} = t.context;
 	const reportSpy = sinon.spy(libReport, "createContext");
 
-	const watermarks = {
+	const modifiedWatermarks = {
 		statements: [5, 10],
 		functions: [15, 20],
 		branches: [25, 30],
@@ -187,18 +204,38 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 	};
 
 	const config = await createInstrumentationConfig();
+	const {watermarks: defaultWatermarks} = config.report;
 
-	reportSpy.resetHistory();
-	await coverageReporter({...coverageData, watermarks},
+	await coverageReporter({...coverageData, watermarks: modifiedWatermarks},
 		config,
 		mockedResource
 	);
 
 	let reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
-	t.deepEqual(watermarks, reportedWatermarks, "Watermarks got updated");
+	t.deepEqual(reportedWatermarks, modifiedWatermarks, "Watermarks got updated");
 
 	await coverageReporter(coverageData, config, mockedResource);
 
 	reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
-	t.notDeepEqual(watermarks, reportedWatermarks, "Default watermarks got used");
+	t.notDeepEqual(reportedWatermarks, modifiedWatermarks, "Watermarks state is not persisted");
+	t.deepEqual(reportedWatermarks, defaultWatermarks, "Default watermarks got used");
+});
+
+test("Report Coverage: Fronted config for watermarks- overwrite just some properties", async (t) => {
+	const {sinon, coverageReporter, libReport} = t.context;
+	const reportSpy = sinon.spy(libReport, "createContext");
+
+	const config = await createInstrumentationConfig();
+	const {watermarks: defaultWatermarks} = config.report;
+
+	await coverageReporter(
+		{...coverageData, watermarks: {statements: [5, 10]}},
+		config,
+		mockedResource
+	);
+
+	const reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
+	t.deepEqual(reportedWatermarks, {...defaultWatermarks, ...{statements: [5, 10]}},
+		"Only 'statements' got updated. The rest is with default values."
+	);
 });
