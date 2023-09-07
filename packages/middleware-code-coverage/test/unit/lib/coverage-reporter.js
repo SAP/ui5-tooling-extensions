@@ -194,8 +194,7 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 		mockedResource
 	);
 
-	let lastReport = reportSpy.args.slice(-1);
-	let reportedWatermarks = lastReport[0][0].watermarks;
+	let reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
 	t.deepEqual(watermarks, reportedWatermarks, "Watermarks got updated");
 
 	await coverageReporter(coverageData, config, mockedResource);
