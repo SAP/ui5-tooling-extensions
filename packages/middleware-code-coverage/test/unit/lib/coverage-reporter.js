@@ -199,7 +199,6 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 
 	await coverageReporter(coverageData, config, mockedResource);
 
-	lastReport = reportSpy.args.slice(-1);
-	reportedWatermarks = lastReport[0][0].watermarks;
+	reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
 	t.notDeepEqual(watermarks, reportedWatermarks, "Default watermarks got used");
 });
