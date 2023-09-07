@@ -1,5 +1,6 @@
 import test from "ava";
 import sinon from "sinon";
+import libReport from "istanbul-lib-report";
 import coverageReporter from "../../../lib/coverage-reporter.js";
 import {createInstrumentationConfig} from "../../../lib/util.js";
 
@@ -173,4 +174,33 @@ test("Report Coverage: Log warning if resource can not be found", async (t) => {
 	t.is(warnLogStub.getCall(0).args[0],
 		"/resources/Control1.js not found! Detailed report can't be generated for that resource!");
 	t.deepEqual(report, expectedConfig);
+});
+
+test("Report Coverage: Fronted config for watermarks", async (t) => {
+	const reportSpy = sinon.spy(libReport, "createContext");
+
+	const watermarks = {
+		statements: [5, 10],
+		functions: [15, 20],
+		branches: [25, 30],
+		lines: [35, 40],
+	};
+
+	const config = await createInstrumentationConfig();
+
+	reportSpy.resetHistory();
+	await coverageReporter({...coverageData, watermarks},
+		config,
+		mockedResource
+	);
+
+	let lastReport = reportSpy.args.slice(-1);
+	let reportedWatermarks = lastReport[0][0].watermarks;
+	t.deepEqual(watermarks, reportedWatermarks, "Watermarks got updated");
+
+	await coverageReporter(coverageData, config, mockedResource);
+
+	lastReport = reportSpy.args.slice(-1);
+	reportedWatermarks = lastReport[0][0].watermarks;
+	t.notDeepEqual(watermarks, reportedWatermarks, "Default watermarks got used");
 });
