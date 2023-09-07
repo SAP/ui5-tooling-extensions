@@ -35,7 +35,8 @@ export default async function(coverageData, config, resources, log) {
 
 	const coverageMap =
 		istanbulLibCoverage.createCoverageMap(globalCoverageMap);
-	const {report: reportConfig} = config;
+	const {report} = config;
+	const reportConfig = {...report};
 
 	// Frontend config for watermarks should take precedence if present.
 	reportConfig.watermarks = {...reportConfig.watermarks, ...watermarks};
