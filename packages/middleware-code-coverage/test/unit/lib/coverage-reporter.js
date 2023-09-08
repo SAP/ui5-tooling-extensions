@@ -90,11 +90,7 @@ formatMessage(message) {
 
 test.beforeEach(async (t) => {
 	t.context.sinon = sinonGlobal.createSandbox();
-
-	t.context.libReport = await esmock("istanbul-lib-report");
-	t.context.coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
-		"istanbul-lib-report": t.context.libReport
-	});
+	t.context.coverageReporter = await esmock("../../../lib/coverage-reporter.js");
 });
 
 test.afterEach.always((t) => {
@@ -193,7 +189,11 @@ test("Report Coverage: Log warning if resource can not be found", async (t) => {
 });
 
 test("Report Coverage: Fronted config for watermarks", async (t) => {
-	const {sinon, coverageReporter, libReport} = t.context;
+	const {sinon} = t.context;
+	const libReport = await esmock("istanbul-lib-report");
+	const coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
+		"istanbul-lib-report": libReport
+	});
 	const reportSpy = sinon.spy(libReport, "createContext");
 
 	const modifiedWatermarks = {
@@ -222,7 +222,11 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 });
 
 test("Report Coverage: Fronted config for watermarks- overwrite just some properties", async (t) => {
-	const {sinon, coverageReporter, libReport} = t.context;
+	const {sinon} = t.context;
+	const libReport = await esmock("istanbul-lib-report");
+	const coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
+		"istanbul-lib-report": libReport
+	});
 	const reportSpy = sinon.spy(libReport, "createContext");
 
 	const config = await createInstrumentationConfig();
