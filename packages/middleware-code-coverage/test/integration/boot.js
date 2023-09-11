@@ -81,7 +81,8 @@ function startUI5Server(configPath, port) {
 	// Starting the app this way would allow us to directly kill the "ui5 serve".
 	// Using App's 'npm start' script would require config to be passed with -- to the underlying 'ui5 serve'
 	// this would start a (detached) subprocess and that would require more efforts to find and kill it.
-	const child = exec("./node_modules/@ui5/cli/bin/ui5.cjs", ["serve", "--config", configPath, "--port", port]);
+	const ui5Cli = path.join(__dirname, "..", "..", "..", "..", "node_modules", "@ui5", "cli", "bin", "ui5.cjs");
+	const child = exec(ui5Cli, ["serve", "--config", configPath, "--port", port]);
 
 	return new Promise( (resolve, reject) => {
 		const onError = (errMessage = "Start of UI5 Server failed.") => {
