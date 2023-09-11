@@ -37,6 +37,9 @@ function startUI5Server(configPath, port) {
 		};
 		const onSuccess = (data) => {
 			data = data ? data.toString() : "";
+
+			console.log("stdout:" + data + ":");
+
 			if (data.startsWith("URL: http://localhost:")) {
 				resolve();
 			} else if (data.startsWith("Process Failed With Error")) {
@@ -45,6 +48,10 @@ function startUI5Server(configPath, port) {
 		};
 
 		child.stdout.on("data", onSuccess);
+		child.stderr.on("data", (data) => {
+			data = data ? data.toString() : "";
+			console.log("stderr:" + data + ":");
+		});
 		child.on("close", onError);
 	});
 }
