@@ -64,7 +64,6 @@ const globalCoverageMap = {
 
 function exec(command, args=[]) {
 	return execa(command, args, {
-		shell: true,
 		cwd: path.join(__dirname, "fixtures", "ui5-app")
 	})
 		.pipeStdout(process.stdout)
@@ -73,13 +72,16 @@ function exec(command, args=[]) {
 
 function setup() {
 	if (!install) {
-		install = exec("npm i --install-links=false");
+		install = exec("npm", ["i", "--install-links=false"]);
 	}
 	return install;
 }
 
 function startUI5Server(configPath, port) {
-	const child = exec("npm start", ["--", "--config", configPath, "--port", port]);
+	// Starting the app this way would allow us to directly kill the "ui5 serve".
+	// Using App's 'npm start' script would require config to be passed with -- to the underlying 'ui5 serve'
+	// this would start a (detached) subprocess and that would require more efforts to find and kill it.
+	const child = exec("./node_modules/@ui5/cli/bin/ui5.cjs", ["serve", "--config", configPath, "--port", port]);
 
 	return new Promise( (resolve, reject) => {
 		const onError = (errMessage = "Start of UI5 Server failed.") => {
@@ -114,8 +116,9 @@ async function startUI5App(config = "./ui5.yaml") {
 }
 
 function endUI5App(proc) {
-	proc.stdout.pause();
-	proc.kill();
+	// Magic number! A (random) timeout to forcefully try to kill the process
+	const forceKillAfterTimeout = 200;
+	proc.kill("SIGKILL", {forceKillAfterTimeout}); // SIGKILL kills the process immediately
 }
 
 test.before(async (t) => {
