@@ -77,7 +77,6 @@ function startUI5Server(configPath, port) {
 
 	return new Promise( (resolve, reject) => {
 		const onError = (errMessage = "Start of UI5 Server failed.") => {
-			endUI5App(child); // Kill the process
 			reject(new Error(errMessage));
 		};
 		const onSuccess = (data) => {
@@ -91,9 +90,6 @@ function startUI5Server(configPath, port) {
 
 		child.stdout.on("data", onSuccess);
 		child.on("close", onError);
-		// Put timeout, so if some message is missed,
-		// the test would fail instead of hanging.
-		setTimeout(() => onError("Test timed out"), TEST_TIMEOUT);
 	});
 }
 
@@ -107,22 +103,12 @@ async function startUI5App(config = "./ui5.yaml") {
 	return {app, proc};
 }
 
-function endUI5App(proc) {
-	// Magic number! A (random) timeout to forcefully try to kill the process
-	const forceKillAfterTimeout = 200;
-	proc.kill("SIGKILL", {forceKillAfterTimeout}); // SIGKILL kills the process immediately
-}
-
 test.before(async (t) => {
-	t.timeout(500000);
+	t.timeout(TEST_TIMEOUT);
 
 	const {app, proc} = await startUI5App(path.join(__dirname, "fixtures", "config", "ui5-simple.yaml"));
 	t.context.app = app;
 	t.context.proc = proc;
-});
-
-test.after((t) => {
-	endUI5App(t.context.proc);
 });
 
 test.serial("Ping endpoint is up and running", async (t) => {
