@@ -57,7 +57,7 @@
 	},
 	"scripts": {
 		"lint": "eslint ./",
-		"depcheck": "depcheck --ignores ava,@istanbuljs/esm-loader-hook,@ui5/cli",
+		"depcheck": "depcheck --ignores ava,@istanbuljs/esm-loader-hook",
 		"test": "npm run lint && npm run depcheck && npm run test:unit:coverage && npm run test:integration",
 		"test:unit": "ava",
 		"test:unit:coverage": "nyc ava --node-arguments=\"--experimental-loader=@istanbuljs/esm-loader-hook\"",
