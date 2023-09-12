@@ -141,7 +141,7 @@ test.serial("Coverage report is generated and available", async (t) => {
 	t.is(htmlReportResponse.status, 200, "HTML Report is generated and available");
 	t.truthy(
 		htmlReportResponse.text.includes("<title>Code coverage report"),
-		"HTML Report is not a real coverage page"
+		"HTML Report is a real coverage page"
 	);
 });
 
@@ -151,7 +151,7 @@ test.serial("Coverage report is unavailable", async (t) => {
 	await app.post("/.ui5/coverage/report", globalCoverageMap);
 
 	const nonExistingReportReportResponse = await app.get("/.ui5/coverage/report/cobertura");
-	t.true(nonExistingReportReportResponse.status >= 400, "cobertura report has not been generated");
+	t.is(nonExistingReportReportResponse.status, 404, "cobertura report has not been generated");
 	t.falsy(
 		nonExistingReportReportResponse.text.includes("<title>Code coverage report"),
 		"A non coverage report page is returned"
