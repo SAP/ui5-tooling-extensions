@@ -7,8 +7,6 @@ import {execa} from "execa";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const TEST_TIMEOUT = 5 * 60 * 1000; // 5 minutes
 
-let install;
-
 const globalCoverageMap = {
 	"/resources/Control1.js": {
 		"path": "/resources/Control1.js",
@@ -70,13 +68,6 @@ function exec(command, args=[]) {
 		.pipeStderr(process.stderr);
 }
 
-function setup() {
-	if (!install) {
-		install = exec("npm", ["i", "--install-links=false"]);
-	}
-	return install;
-}
-
 function startUI5Server(configPath, port) {
 	// Starting the app this way would allow us to directly kill the "ui5 serve".
 	// Using App's 'npm start' script would require config to be passed with -- to the underlying 'ui5 serve'
@@ -124,7 +115,6 @@ function endUI5App(proc) {
 
 test.before(async (t) => {
 	t.timeout(500000);
-	await setup();
 
 	const {app, proc} = await startUI5App(path.join(__dirname, "fixtures", "config", "ui5-simple.yaml"));
 	t.context.app = app;
