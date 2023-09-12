@@ -69,9 +69,9 @@ function exec(command, args=[]) {
 }
 
 function startUI5Server(configPath, port) {
-	// Starting the app this way would allow us to directly kill the "ui5 serve".
-	// Using App's 'npm start' script would require config to be passed with -- to the underlying 'ui5 serve'
-	// this would start a (detached) subprocess and that would require more efforts to find and kill it.
+	// Starting the app this way allows AVA to directly manage and kill subprocesses like "ui5 serve".
+	// Using App's 'npm start' script would start a (detached) subprocess and that
+	// would require more efforts to find and kill it.
 	const ui5Cli = path.join(__dirname, "..", "..", "..", "..", "node_modules", "@ui5", "cli", "bin", "ui5.cjs");
 	const child = exec(ui5Cli, ["serve", "--config", configPath, "--port", port]);
 
@@ -82,7 +82,7 @@ function startUI5Server(configPath, port) {
 		const onSuccess = (data) => {
 			data = data ? data.toString() : "";
 			if (data.includes("URL: http://localhost:")) {
-				resolve({proc: child});
+				resolve();
 			} else if (data.includes("Process Failed With Error")) {
 				onError();
 			}
@@ -97,18 +97,17 @@ async function startUI5App(config = "./ui5.yaml") {
 	const configPath = path.resolve(config);
 	const port = await getPort();
 
-	const {proc} = await startUI5Server(configPath, port);
+	await startUI5Server(configPath, port);
 
 	const app = request(`http://localhost:${port}`);
-	return {app, proc};
+	return {app};
 }
 
 test.before(async (t) => {
 	t.timeout(TEST_TIMEOUT);
 
-	const {app, proc} = await startUI5App(path.join(__dirname, "fixtures", "config", "ui5-simple.yaml"));
+	const {app} = await startUI5App(path.join(__dirname, "fixtures", "config", "ui5-simple.yaml"));
 	t.context.app = app;
-	t.context.proc = proc;
 });
 
 test.serial("Ping endpoint is up and running", async (t) => {
