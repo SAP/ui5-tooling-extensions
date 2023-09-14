@@ -224,7 +224,7 @@ Sends `__coverage__` data to the middleware. A static report is generated with t
 
 **Note:** Report types could be defined and limited via the middleware's configuration.
 
-**Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported. Frontend defined settings take precedence over default or `ui5.yaml` configured ones.
+**Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported (Available since OpenUI5 1.119.0). Frontend defined settings take precedence over default or `ui5.yaml` configured ones.
 
 **Example:**
 
