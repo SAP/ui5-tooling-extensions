@@ -113,7 +113,12 @@ npm install @ui5/middleware-code-coverage --save-dev
         <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
           data-sap-ui-cover-only="ui5/sample/"
-          data-sap-ui-cover-never="ui5/sample/test/"></script>
+          data-sap-ui-cover-never="ui5/sample/test/"
+          data-sap-ui-cover-watermarks-statements="[90,95]"
+          data-sap-ui-cover-watermarks-functions="[90,95]"
+          data-sap-ui-cover-watermarks-branches="[90,95]"
+          data-sap-ui-cover-watermarks-lines="[90,95]"
+      ></script>
         <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
 
@@ -224,7 +229,7 @@ Sends `__coverage__` data to the middleware. A static report is generated with t
 
 **Note:** Report types could be defined and limited via the middleware's configuration.
 
-**Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported (Available since OpenUI5 1.119.0). Frontend defined settings take precedence over default or `ui5.yaml` configured ones.
+**Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported (Available since OpenUI5 1.119.0). Frontend defined settings take precedence over default or `ui5.yaml` configured ones. On how to use it in OpenUI5 HTML test pages, please refer to the [Usage](#usage) section of this document.
 
 **Example:**
 
