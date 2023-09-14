@@ -62,7 +62,8 @@ const globalCoverageMap = {
 
 function exec(command, args=[]) {
 	return execa(command, args, {
-		cwd: path.join(__dirname, "fixtures", "ui5-app")
+		cwd: path.join(__dirname, "fixtures", "ui5-app"),
+		preferLocal: true
 	})
 		.pipeStdout(process.stdout)
 		.pipeStderr(process.stderr);
@@ -72,8 +73,7 @@ function startUI5Server(configPath, port) {
 	// Starting the app this way allows AVA to directly manage and kill subprocesses like "ui5 serve".
 	// Using App's 'npm start' script would start a (detached) subprocess and that
 	// would require more efforts to find and kill it.
-	const ui5Cli = path.join(__dirname, "..", "..", "..", "..", "node_modules", "@ui5", "cli", "bin", "ui5.cjs");
-	const child = exec(ui5Cli, ["serve", "--config", configPath, "--port", port]);
+	const child = exec("ui5", ["serve", "--config", configPath, "--port", port]);
 
 	return new Promise( (resolve, reject) => {
 		const onError = (errMessage = "Start of UI5 Server failed.") => {
