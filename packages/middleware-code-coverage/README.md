@@ -114,10 +114,6 @@ npm install @ui5/middleware-code-coverage --save-dev
         <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
           data-sap-ui-cover-only="ui5/sample/"
           data-sap-ui-cover-never="ui5/sample/test/"
-          data-sap-ui-cover-watermarks-statements="[90,95]"
-          data-sap-ui-cover-watermarks-functions="[90,95]"
-          data-sap-ui-cover-watermarks-branches="[90,95]"
-          data-sap-ui-cover-watermarks-lines="[90,95]"
       ></script>
         <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
@@ -175,98 +171,59 @@ Defaults to:
 }
 ```
 
+### Frontend Configuration
+
+It is possible to override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) (since OpenUI5 1.119.0) via data attributes in `qunit-coverage-istanbul.js`'s script tag.
+
+```html title="unitTests.qunit.html"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unit tests for OpenUI5 App</title>
+
+    <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-resourceroots='{
+        "ui5.sample": "../../"
+      }' data-sap-ui-language="EN" data-sap-ui-async="true">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/thirdparty/qunit-2.css">
+
+    <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
+    <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
+    <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
+      data-sap-ui-cover-only="ui5/sample/"
+      data-sap-ui-cover-never="ui5/sample/test/"
+      data-sap-ui-cover-watermarks-statements="[90,95]"
+      data-sap-ui-cover-watermarks-functions="[90,95]"
+      data-sap-ui-cover-watermarks-branches="[90,95]"
+      data-sap-ui-cover-watermarks-lines="[90,95]"
+  ></script>
+    <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
+    <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
+
+    <script src="unitTests.qunit.js"></script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+</body>
+</html>
+```
+
 ## How it works
 
-The middleware adds an HTTP endpoint to the development server.
+The middleware adds an HTTP endpoint to the development server. Information about the endpoints can be found in the [API document](./docs/API.md).
 
 The custom middleware intercepts every `.js`-file before it is sent to the client. The file is then instrumented on the fly, including the dynamic creation of a `sourcemap`.
 
 The instrumented code and the `sourcemap` are subsequently delivered to the client instead of the original `.js`-file.
 
-## API
-
-This REST API is the underlying foundation of the middleware.
-
-**Note:** The `/.ui5/` path is reserved for UI5 Core modules and must not be used for third-party modules.
-
----
-### GET `{path/to/resource}?instrument=true`
-
-A resource could be instrumented for code coverage by appending `?instrument=true` as a query parameter. **Note:** If a resource has already been excluded via `excludePatterns` in middleware's configuration, the query parameter is ignored.
-
-**Example:**
-
-```js
-// OpenUI5
-
-GET /resources/sap/m/ComboBox.js?instrument=true
-GET /resources/sap/m/ComboBoxBase.js?instrument=true
-GET /resources/sap/m/ComboBoxBaseRenderer.js?instrument=true
-GET /resources/sap/m/ComboBoxRenderer.js?instrument=true
-GET /resources/sap/m/ComboBoxTextField.js?instrument=true
-GET /resources/sap/m/ComboBoxTextFieldRenderer.js?instrument=true
-```
-
----
-
-### GET `/.ui5/coverage/ping`
-
-Healthcheck. Useful when checking for the middleware's existence.
-
-**Example:**
-
-```js
-fetch("/.ui5/coverage/ping", {
-  method: "GET",
-});
-```
-
----
-
-### POST `/.ui5/coverage/report`
-
-Sends `__coverage__` data to the middleware. A static report is generated with the provided data. Reports could be accessed via the `/.ui5/coverage/report/${reportType}` route. The available report types could be found [here](https://github.com/istanbuljs/istanbuljs/tree/73c25ce79f91010d1ff073aa6ff3fd01114f90db/packages/istanbul-reports/lib).  
-
-**Note:** Report types could be defined and limited via the middleware's configuration.
-
-**Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported (Available since OpenUI5 1.119.0). Frontend defined settings take precedence over default or `ui5.yaml` configured ones. On how to use it in OpenUI5 HTML test pages, please refer to the [Usage](#usage) section of this document.
-
-**Example:**
-
-```js
-fetch("/.ui5/coverage/report", {
-  method: "POST",
-  body: JSON.stringify({
-    coverage: window.__coverage__,
-    watermarks: { // Optional: report setting
-      statements: [75, 90],
-      functions: [75, 90],
-      branches: [75, 90],
-      lines: [75, 90]
-    }
-  }),
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-```
-
----
-
-### GET `/.ui5/coverage/report/${reportType}`
-
-Returns the generated report(s) from the last generation via the `/.ui5/coverage/report` route.
-
-**Example:**
-
-```js
-GET /.ui5/coverage/report/html
-GET /.ui5/coverage/report/lcov
-```
-
 ## Integration
 
-The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the configuration and the public API, developers could set up the middleware to suit their projects' needs.
+The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the [configuration](#configuration) and the [public API](./docs/API.md), developers could set up the middleware to suit their projects' needs.
 
 ### OpenUI5 QUnit Integration
 
