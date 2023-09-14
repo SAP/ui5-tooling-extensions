@@ -7,7 +7,6 @@
 		"start": "ui5 serve"
 	},
 	"devDependencies": {
-		"@ui5/cli": "^3.0.7",
 		"@ui5/middleware-code-coverage": "../../../../"
 	}
 }
