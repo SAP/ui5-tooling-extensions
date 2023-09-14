@@ -79,6 +79,56 @@ GET /.ui5/coverage/report/html
 GET /.ui5/coverage/report/lcov
 ```
 
+## Custom Integration
+
+Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage.
+
+```js
+// A module in the browser
+
+const isMiddlewareAvailable = await fetch("/.ui5/coverage/ping", {
+  method: "GET",
+});
+
+if (isMiddlewareAvailable) {
+  
+  const generatedReports = await fetch("/.ui5/coverage/report", {
+    method: "POST",
+    body: JSON.stringify({
+      coverage: window.__coverage__,
+      watermarks: { // Optional: report setting
+        statements: [75, 90],
+        functions: [75, 90],
+        branches: [75, 90],
+        lines: [75, 90]
+      }
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  // Extract the html report from the list of reports
+  const htmlReport = generatedReports.availableReports.find(
+    (report) => report.report === "html"
+  );
+  
+  if (htmlReport) {
+    
+    const body = document.body;
+    const iFrameElem = document.createElement("iframe");
+    
+    iFrameElem.src = "/.ui5/coverage/report/" + htmlReport.destination;
+    iFrameElem.style.border = "none";
+    iFrameElem.style.width = "100%";
+    iFrameElem.style.height = "100vh";
+    iFrameElem.sandbox = "allow-scripts";
+
+    body.appendChild(iFrameElem);
+    
+  }
+}
+```
 
 ## Licensing
 

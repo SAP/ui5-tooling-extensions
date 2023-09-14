@@ -229,56 +229,6 @@ The middleware is integrated into OpenUI5 out of the box, but it is not limited 
 
 The `qunit-coverage-istanbul.js` (part of `sap.ui.core` library) file requests the instrumented source files by the middleware. While the tests are running, `qunit-coverage-istanbul.js` takes care of collecting and storing the coverage records into the `window.__coverage__` global variable. After the tests are executed, `qunit-coverage-istanbul.js` sends this data to the middleware, which then generates the code coverage report. Afterwards, the code coverage is displayed on the test page.
 
-### Custom Integration
-
-Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage.
-
-```js
-// A module in the browser
-
-const isMiddlewareAvailable = await fetch("/.ui5/coverage/ping", {
-  method: "GET",
-});
-
-if (isMiddlewareAvailable) {
-  
-  const generatedReports = await fetch("/.ui5/coverage/report", {
-    method: "POST",
-    body: JSON.stringify({
-      coverage: window.__coverage__,
-      watermarks: { // Optional: report setting
-        statements: [75, 90],
-        functions: [75, 90],
-        branches: [75, 90],
-        lines: [75, 90]
-      }
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  // Extract the html report from the list of reports
-  const htmlReport = generatedReports.availableReports.find(
-    (report) => report.report === "html"
-  );
-  
-  if (htmlReport) {
-    
-    const body = document.body;
-    const iFrameElem = document.createElement("iframe");
-    
-    iFrameElem.src = "/.ui5/coverage/report/" + htmlReport.destination;
-    iFrameElem.style.border = "none";
-    iFrameElem.style.width = "100%";
-    iFrameElem.style.height = "100vh";
-    iFrameElem.sandbox = "allow-scripts";
-
-    body.appendChild(iFrameElem);
-    
-  }
-}
-```
 
 ## Code of Conduct
 
