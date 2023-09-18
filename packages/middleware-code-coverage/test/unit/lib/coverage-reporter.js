@@ -190,8 +190,8 @@ test("Report Coverage: Log warning if resource can not be found", async (t) => {
 
 test("Report Coverage: Fronted config for watermarks", async (t) => {
 	const {sinon} = t.context;
-	const libReport = await esmock("istanbul-lib-report");
-	const coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
+	const libReport = await esmock.p("istanbul-lib-report");
+	const coverageReporter = await esmock.p("../../../lib/coverage-reporter.js", {
 		"istanbul-lib-report": libReport
 	});
 	const reportSpy = sinon.spy(libReport, "createContext");
@@ -219,12 +219,15 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 	reportedWatermarks = reportSpy.lastCall.args[0].watermarks;
 	t.notDeepEqual(reportedWatermarks, modifiedWatermarks, "Watermarks state is not persisted");
 	t.deepEqual(reportedWatermarks, defaultWatermarks, "Default watermarks got used");
+
+	esmock.purge(libReport);
+	esmock.purge(coverageReporter);
 });
 
 test("Report Coverage: Fronted config for watermarks- overwrite just some properties", async (t) => {
 	const {sinon} = t.context;
-	const libReport = await esmock("istanbul-lib-report");
-	const coverageReporter = await esmock("../../../lib/coverage-reporter.js", {
+	const libReport = await esmock.p("istanbul-lib-report");
+	const coverageReporter = await esmock.p("../../../lib/coverage-reporter.js", {
 		"istanbul-lib-report": libReport
 	});
 	const reportSpy = sinon.spy(libReport, "createContext");
@@ -242,4 +245,7 @@ test("Report Coverage: Fronted config for watermarks- overwrite just some proper
 	t.deepEqual(reportedWatermarks, {...defaultWatermarks, ...{statements: [5, 10]}},
 		"Only 'statements' got updated. The rest is with default values."
 	);
+
+	esmock.purge(libReport);
+	esmock.purge(coverageReporter);
 });
