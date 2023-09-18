@@ -93,7 +93,7 @@ npm install @ui5/middleware-code-coverage --save-dev
 
     **New:**
 
-    ```html title="unitTests.qunit.html"
+    ```diff html title="unitTests.qunit.html"
     <!DOCTYPE html>
     <html>
     <head>
@@ -111,10 +111,10 @@ npm install @ui5/middleware-code-coverage --save-dev
 
         <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
         <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
-        <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
+    -   <script src="../../resources/sap/ui/qunit/qunit-coverage.js"
+    +   <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
           data-sap-ui-cover-only="ui5/sample/"
-          data-sap-ui-cover-never="ui5/sample/test/"
-      ></script>
+          data-sap-ui-cover-never="ui5/sample/test/"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
         <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
 
@@ -173,44 +173,20 @@ Defaults to:
 
 ### Frontend Configuration
 
-It is possible to override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) (since OpenUI5 1.119.0) via data attributes in `qunit-coverage-istanbul.js`'s script tag.
+It is possible to override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) (since UI5 1.119.0) via data attributes in `qunit-coverage-istanbul.js`'s script tag.
 
-```html title="unitTests.qunit.html"
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Unit tests for OpenUI5 App</title>
+```diff html title="unitTests.qunit.html"
+...
 
-    <script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js"
-      data-sap-ui-theme="sap_horizon"
-      data-sap-ui-resourceroots='{
-        "ui5.sample": "../../"
-      }' data-sap-ui-language="EN" data-sap-ui-async="true">
-    </script>
-
-    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/thirdparty/qunit-2.css">
-
-    <script src="../../resources/sap/ui/thirdparty/qunit-2.js"></script>
-    <script src="../../resources/sap/ui/qunit/qunit-junit.js"></script>
     <script src="../../resources/sap/ui/qunit/qunit-coverage-istanbul.js"
       data-sap-ui-cover-only="ui5/sample/"
       data-sap-ui-cover-never="ui5/sample/test/"
-      data-sap-ui-cover-watermarks-statements="[90,95]"
-      data-sap-ui-cover-watermarks-functions="[90,95]"
-      data-sap-ui-cover-watermarks-branches="[90,95]"
-      data-sap-ui-cover-watermarks-lines="[90,95]"
-  ></script>
-    <script src="../../resources/sap/ui/thirdparty/sinon.js"></script>
-    <script src="../../resources/sap/ui/thirdparty/sinon-qunit.js"></script>
++     data-sap-ui-cover-watermarks-statements="[90,95]"
++     data-sap-ui-cover-watermarks-functions="[90,95]"
++     data-sap-ui-cover-watermarks-branches="[90,95]"
++     data-sap-ui-cover-watermarks-lines="[90,95]"></script>
 
-    <script src="unitTests.qunit.js"></script>
-</head>
-<body>
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-</body>
-</html>
+...
 ```
 
 ## How it works
