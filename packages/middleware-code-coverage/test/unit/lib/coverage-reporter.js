@@ -188,7 +188,10 @@ test("Report Coverage: Log warning if resource can not be found", async (t) => {
 	t.deepEqual(report, expectedConfig);
 });
 
-test("Report Coverage: Fronted config for watermarks", async (t) => {
+// ESM import + sinon.spy on "istanbul-lib-report" causes an already wrapped exception on windows + nodejs 20.6.1
+// Running tests that spy on "istanbul-lib-report" serially solves this issue as after every test
+// the mocking is cleared (esmock.purge)
+test.serial("Report Coverage: Fronted config for watermarks", async (t) => {
 	const {sinon} = t.context;
 	const libReport = await esmock.p("istanbul-lib-report");
 	const coverageReporter = await esmock.p("../../../lib/coverage-reporter.js", {
@@ -224,7 +227,10 @@ test("Report Coverage: Fronted config for watermarks", async (t) => {
 	esmock.purge(coverageReporter);
 });
 
-test("Report Coverage: Fronted config for watermarks- overwrite just some properties", async (t) => {
+// ESM import + sinon.spy on "istanbul-lib-report" causes an already wrapped exception on windows + nodejs 20.6.1
+// Running tests that spy on "istanbul-lib-report" serially solves this issue as after every test
+// the mocking is cleared (esmock.purge)
+test.serial("Report Coverage: Fronted config for watermarks- overwrite just some properties", async (t) => {
 	const {sinon} = t.context;
 	const libReport = await esmock.p("istanbul-lib-report");
 	const coverageReporter = await esmock.p("../../../lib/coverage-reporter.js", {
