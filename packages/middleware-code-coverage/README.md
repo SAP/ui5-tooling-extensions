@@ -191,7 +191,7 @@ You can override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f
 
 ## How It Works
 
-The middleware adds an HTTP endpoint to the development server. Information about the endpoints can be found in the [API document](./docs/API.md).
+The middleware adds an HTTP endpoint to the development server. For more information about the endpoints, see the [API document](./docs/API.md).
 
 The custom middleware intercepts every `.js`-file before it is sent to the client. The file is then instrumented on the fly, including the dynamic creation of a `sourcemap`.
 
