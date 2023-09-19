@@ -199,7 +199,7 @@ The instrumented code and the `sourcemap` are subsequently delivered to the clie
 
 ## Integration
 
-The middleware is integrated into OpenUI5 out of the box, but it is not limited just to it. With the [configuration](#configuration) and the [public API](./docs/API.md), developers could set up the middleware to suit their projects' needs.
+The middleware is integrated into OpenUI5 out of the box, but you are not limited by this. With the [configuration](#configuration) and the [public API](./docs/API.md), you can set up the middleware to suit your projects' needs.
 
 ### OpenUI5 QUnit Integration
 
