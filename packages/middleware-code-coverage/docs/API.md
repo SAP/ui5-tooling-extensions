@@ -81,7 +81,7 @@ GET /.ui5/coverage/report/lcov
 
 ## Custom Integration
 
-Below is an example of a sample scenario to integrate UI5 Middleware Code Coverage.
+Sample scenario to integrate UI5 Middleware Code Coverage:
 
 ```js
 // A module in the browser
