@@ -26,7 +26,7 @@ GET /resources/sap/m/ComboBoxTextFieldRenderer.js?instrument=true
 
 ### GET `/.ui5/coverage/ping`
 
-Healthcheck. Useful when checking for the middleware's existence.
+Health check. Useful when checking for the middleware's existence.
 
 **Example:**
 
