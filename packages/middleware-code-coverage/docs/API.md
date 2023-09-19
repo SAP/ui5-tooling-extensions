@@ -70,7 +70,7 @@ fetch("/.ui5/coverage/report", {
 
 ### GET `/.ui5/coverage/report/${reportType}`
 
-Returns the generated report(s) from the last generation via the `/.ui5/coverage/report` route.
+Returns the most recent report(s) via the `/.ui5/coverage/report` route.
 
 **Example:**
 
