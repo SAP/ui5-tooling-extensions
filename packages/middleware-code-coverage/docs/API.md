@@ -42,7 +42,7 @@ fetch("/.ui5/coverage/ping", {
 
 Sends `__coverage__` data to the middleware. A static report is generated with the data provided. Reports can be accessed via the `/.ui5/coverage/report/${reportType}` route. The available report types can be found [here](https://github.com/istanbuljs/istanbuljs/tree/73c25ce79f91010d1ff073aa6ff3fd01114f90db/packages/istanbul-reports/lib).  
 
-**Note:** Report types could be defined and limited via the middleware's configuration.
+**Note:** Report types can be defined and limited via the middleware's configuration.
 
 **Note:** Also it is possible to set report settings from the frontend by providing them via the request body. Currently, only [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) are supported (available since UI5 1.119.0). Frontend defined settings take precedence over default or `ui5.yaml` configured ones. On how to use it in OpenUI5 HTML test pages, please refer to the [Frontend Configuration](../README.md#frontend-configuration) section of the main document.
 
