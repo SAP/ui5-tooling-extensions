@@ -12,7 +12,7 @@ import path from "node:path";
 /**
  * Reports the coverage
  *
- * @param {object} globalCoverageMap
+ * @param {object} coverageData
  * @param {*} config
  * @param {object} resources Resource collections
  * @param {module:@ui5/fs.AbstractReader} resources.all Reader or Collection to read resources of the
@@ -25,10 +25,20 @@ import path from "node:path";
  *  Logger instance of the custom middleware instance
  * @returns {@ui5/middleware-code-coverage/Coverage}
  */
-export default async function(globalCoverageMap, config, resources, log) {
+export default async function(coverageData, config, resources, log) {
+	let {coverage: globalCoverageMap, watermarks} = coverageData;
+
+	// For compatibility reasons with the old structure, we need first to check
+	// whether the "coverage" property is present in coverageData or use the
+	// whole coverageData object (old structure).
+	globalCoverageMap = globalCoverageMap || coverageData;
+
 	const coverageMap =
 		istanbulLibCoverage.createCoverageMap(globalCoverageMap);
-	const {report: reportConfig} = config;
+	const reportConfig = {...config.report};
+
+	// Frontend config for watermarks should take precedence if present.
+	reportConfig.watermarks = {...reportConfig.watermarks, ...watermarks};
 
 	// Get & stash code from the resources
 	// Later this would be needed to create the reports
