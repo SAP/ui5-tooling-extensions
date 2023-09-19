@@ -189,7 +189,7 @@ You can override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f
 ...
 ```
 
-## How it works
+## How It Works
 
 The middleware adds an HTTP endpoint to the development server. Information about the endpoints can be found in the [API document](./docs/API.md).
 
