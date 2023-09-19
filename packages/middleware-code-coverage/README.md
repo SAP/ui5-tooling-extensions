@@ -173,7 +173,7 @@ Defaults to:
 
 ### Frontend Configuration
 
-It is possible to override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) (since UI5 1.119.0) via data attributes in `qunit-coverage-istanbul.js`'s script tag.
+You can override [`watermarks`](https://github.com/istanbuljs/nyc/blob/ab7c53b2f340b458789a746dff2abd3e2e4790c3/README.md#high-and-low-watermarks) (since UI5 1.119.0) via data attributes in the script tag for `qunit-coverage-istanbul.js`':
 
 ```diff html title="unitTests.qunit.html"
 ...
