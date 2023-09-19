@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.3...middleware-code-coverage-v1.1.0) (2023-09-19)
+
+
+### Features
+
+* **middleware-code-coverage:** allow coverage watermarks configuration via frontend ([#145](https://github.com/SAP/ui5-tooling-extensions/issues/145)) ([ece9fa6](https://github.com/SAP/ui5-tooling-extensions/commit/ece9fa64e04a93d69d910a41016ad197fa0beae9))
+
+
+### Dependencies
+
+* bump istanbul-lib-instrument from 5.2.1 to 6.0.0 ([fbf8b29](https://github.com/SAP/ui5-tooling-extensions/commit/fbf8b29664fb6a9f953ea88dd22b14911be0dffe))
+* bump istanbul-lib-report from 3.0.0 to 3.0.1 ([9bc4b39](https://github.com/SAP/ui5-tooling-extensions/commit/9bc4b39ba91aebcd34e3b1d91cdd0cf545cc7f46))
+* bump istanbul-reports from 3.1.5 to 3.1.6 ([bd5a78a](https://github.com/SAP/ui5-tooling-extensions/commit/bd5a78abaf0cf8a1218db9b2e076442398e4c184))
+* bump xml2js from 0.6.0 to 0.6.2 ([18904fe](https://github.com/SAP/ui5-tooling-extensions/commit/18904fee24f2a06ace088d2eb639154acb1375a6))
+
 ## [1.0.3](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.2...middleware-code-coverage-v1.0.3) (2023-04-18)
 
 
