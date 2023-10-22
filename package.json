@@ -31,7 +31,7 @@
 		"@commitlint/cli": "^17.8.0",
 		"@commitlint/config-conventional": "^17.8.0",
 		"husky": "^8.0.3",
-		"@ui5/cli": "^3.7.0"
+		"@ui5/cli": "^3.7.1"
 	},
 	"scripts": {
 		"depcheck": "npm run depcheck --workspaces --if-present",
