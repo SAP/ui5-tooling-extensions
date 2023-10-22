@@ -44,7 +44,7 @@
 	"devDependencies": {
 		"@istanbuljs/esm-loader-hook": "^0.2.0",
 		"ava": "^5.3.1",
-		"depcheck": "^1.4.6",
+		"depcheck": "^1.4.7",
 		"eslint": "^8.51.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-plugin-ava": "^14.0.0",
