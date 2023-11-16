@@ -16,6 +16,10 @@ You find this middleware in action in the [OpenUI5 Sample App](https://github.co
 
 This middleware requires UI5 Tooling v3 and is meant for UI5 1.113 and above.
 
+## Limitations
+
+Note that this middleware is currently not compatible with TypeScript based projects, see [TypeScript support #189](https://github.com/SAP/ui5-tooling-extensions/issues/189).
+
 ## Install
 
 ```sh
