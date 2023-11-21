@@ -181,7 +181,7 @@ async function excludePatterns(resources) {
 				// quote characters that might have been used but have a special meaning in regular expressions
 				// TODO: clarify is this regex is valid
 				// eslint-disable-next-line no-useless-escape
-				sPattern = sPattern.replace(/[\[\]\(\)\.]/g, "\\$&");
+				sPattern = sPattern.replace(/[\[\]\(\)\.\\]/g, "\\$&");
 				// our wildcard '*' means 'any name segment, but not multiple components'
 				sPattern = sPattern.replace(/\*/g, "[^/]*");
 				// our wildcard '**/' means 'any number of name segments'
