@@ -179,9 +179,6 @@ async function excludePatterns(resources) {
 					sPattern = sPattern + "/*";
 				}
 
-				// eslint-disable-next-line no-useless-escape
-				sPattern = sPattern.replace(/[\[\]\(\)\.\\]/g, "\\$&");
-
 				// quote characters that might have been used but have a special meaning in regular expressions
 				sPattern = sPattern
 					.replaceAll("[", "\\[")
