@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.1.0...middleware-code-coverage-v1.1.1) (2023-11-24)
+
+
+### Bug Fixes
+
+* **middleware-code-coverage:** fix incomplete string escaping or encoding ([#194](https://github.com/SAP/ui5-tooling-extensions/issues/194)) ([87cabdb](https://github.com/SAP/ui5-tooling-extensions/commit/87cabdb6c6839e19c088e675b97b3f1e0beb9f81))
+
+
+### Dependencies
+
+* bump istanbul-lib-coverage from 3.2.0 to 3.2.2 ([a60139b](https://github.com/SAP/ui5-tooling-extensions/commit/a60139b21428b95832a1ed8525ddb573d16c0ec5))
+* bump istanbul-lib-instrument from 6.0.0 to 6.0.1 ([0057e96](https://github.com/SAP/ui5-tooling-extensions/commit/0057e96105faabec6a391c02f90b271f70128382))
+
 ## [1.1.0](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.0.3...middleware-code-coverage-v1.1.0) (2023-09-19)
 
 
