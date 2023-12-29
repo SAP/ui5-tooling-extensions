@@ -27,6 +27,9 @@ jobs:
     - name: Perfrom ESLint check
       run: npm run lint
 
+    - name: Perfrom Licenses check
+      run: npm run check-licenses
+
     - name: Perform dependency check
       run: npm run depcheck
 
