@@ -1,10 +1,6 @@
 on:
   workflow_dispatch:
     inputs:
-      new-version:
-        description: 'The semver version of the new release'
-        required: true
-        type: string
       package-folder:
         description: 'The package to be released'
         required: true
@@ -25,10 +21,8 @@ jobs:
     - uses: google-github-actions/release-please-action@v4
       id: release
       with:
-        command: manifest
         token: ${{secrets.GH_OPENUI5BOT}}
         monorepo-tags: true
-        release-as: ${{ inputs.new-version }}
         path: packages/${{ inputs.package-folder }}
   publish-package:
     needs: pull-request
