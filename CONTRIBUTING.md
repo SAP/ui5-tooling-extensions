@@ -16,7 +16,7 @@
 
 ### Seeking Help / Not a Bug
 
-If you need help setting something up, or if you have questions regarding UI5 Tooling, please seek help on a community platform like the [SAP Community](https://answers.sap.com/topics/ui5-tooling.html), [StackOverflow](http://stackoverflow.com/questions/tagged/ui5-tooling) or the [`#tooling`](https://openui5.slack.com/archives/C0A7QFN6B) channel of the [OpenUI5 Community Slack](https://join.slack.com/t/openui5/shared_invite/zt-1q128gn3p-JeZTi9XCpPxW8kBohSgqnw).
+If you need help setting something up, or if you have questions regarding UI5 Tooling, please seek help on a community platform like [StackOverflow](http://stackoverflow.com/questions/tagged/ui5-tooling) or the [`#tooling`](https://openui5.slack.com/archives/C0A7QFN6B) channel of the [OpenUI5 Community Slack](https://join.slack.com/t/openui5/shared_invite/zt-1q128gn3p-JeZTi9XCpPxW8kBohSgqnw).
 
 ### How to Report an Issue
 
