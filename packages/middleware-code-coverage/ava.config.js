@@ -1,8 +1,10 @@
 export default {
 	files: ["test/unit/**/*.js"],
-	ignoredByWatcher: [
-		"tmp/**"
-	],
+	watchMode: {
+		ignoreChanges: [
+			"tmp/**"
+		]
+	},
 	nodeArguments: [
 		"--loader=esmock",
 		"--no-warnings"
