@@ -32,7 +32,7 @@
 		"@commitlint/config-conventional": "^19.0.3",
 		"@ui5/cli": "^3.9.1",
 		"licensee": "^10.0.0",
-		"husky": "^8.0.3"
+		"husky": "^9.0.11"
 	},
 	"scripts": {
 		"check-licenses": "licensee --errors-only",
