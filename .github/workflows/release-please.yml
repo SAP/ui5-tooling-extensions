@@ -22,8 +22,7 @@ jobs:
       id: release
       with:
         token: ${{secrets.GH_OPENUI5BOT}}
-        monorepo-tags: true
-        path: packages/${{ inputs.package-folder }}
+        path: packages/${{inputs.package-folder}}
   publish-package:
     needs: pull-request
     if: ${{needs.pull-request.outputs.releases_created}}
@@ -42,6 +41,6 @@ jobs:
       env:
         NPM_TOKEN: ${{secrets.NPM_UI5BOT}}
       run: |
-        cd ${{ matrix.path_released }}
+        cd ${{matrix.path_released}}
         echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> ./.npmrc
         npm publish --workspaces false --access public
