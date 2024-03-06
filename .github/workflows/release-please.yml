@@ -25,7 +25,7 @@ jobs:
         path: packages/${{inputs.package-folder}}
   publish-package:
     needs: pull-request
-    if: ${{needs.pull-request.outputs.releases_created}}
+    if: ${{needs.pull-request.outputs.releases_created && toJson(fromJson(needs.pull-request.outputs.paths_released)) != '[]'}}
     runs-on: ubuntu-22.04
     strategy:
       matrix:
