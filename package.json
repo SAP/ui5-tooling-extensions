@@ -40,7 +40,7 @@
 		"hooks:pre-push": "npm run lint:commit",
 		"lint": "npm run lint --workspaces --if-present",
 		"lint:commit": "commitlint -e",
-		"prepare": "node ./.husky/skip.js || husky install",
+		"prepare": "node ./.husky/skip.js || husky",
 		"test": "npm run test --workspaces --if-present",
 		"test:unit": "npm run test:unit --workspaces --if-present",
 		"test:unit:coverage": "npm run test:unit:coverage --workspaces --if-present",
