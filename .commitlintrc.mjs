@@ -29,6 +29,6 @@ export default {
 	},
 	ignores: [
 		// Ignore release commits, as their subject doesn't start with an uppercase letter
-		(message) => message.startsWith("release: v"),
+		(message) => message.startsWith("release: "),
 	]
 };
