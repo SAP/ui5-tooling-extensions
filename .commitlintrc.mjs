@@ -26,9 +26,9 @@ export default {
 			2, "always",
 			["sentence-case", "start-case", "pascal-case"],
 		],
-		ignores: [
-			// Ignore release commits, as their subject doesn't start with an uppercase letter
-			(message) => message.startsWith("release: v"),
-		]
-	}
-}
+	},
+	ignores: [
+		// Ignore release commits, as their subject doesn't start with an uppercase letter
+		(message) => message.startsWith("release: v"),
+	]
+};
