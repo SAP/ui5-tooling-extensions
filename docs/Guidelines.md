@@ -19,22 +19,22 @@ Please use [rebase instead of merge](https://www.atlassian.com/git/tutorials/mer
 
 ### Commit Message Style
 
-#### Commit Summary
+This project uses the [Conventional Commits specification](https://www.conventionalcommits.org/) to ensure a consistent way of dealing with commit messages.
 
-To be decided.
+````
+feat: Allow coverage watermarks configuration via frontend
 
-#### Commit Body
+This feature enables the extension of default or ui5.yaml's Istanbul
+configuration, so that certain settings could be adjusted from the
+frontend.
+````
 
-To be decided.
+#### Structure
 
-#### Example
+````
+type(scope): Description
+````
 
-To be decided.
-
-## Work on Release Branches
-
-To be decided.
-
-### Implementing Changes in Multiple Code Lines
-
-To be decided.
+- required: every commit message has to start with a lowercase `type`. The project has defined a set of [valid types](../.commitlintrc.js#L6).
+- optional: the `scope` is typically the affected module. If multiple modules are affected by the commit, skip it or define a meaningful abstract scope.
+- required: the `description` has to follow the Sentence Case style. Only the first word and proper nouns are written in uppercase.
