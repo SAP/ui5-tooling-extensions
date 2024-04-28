@@ -52,7 +52,7 @@
 		"get-port": "^7.1.0",
 		"nyc": "^15.1.0",
 		"sinon": "^16.1.0",
-		"supertest": "^6.3.4",
+		"supertest": "^7.0.0",
 		"execa": "^8.0.1"
 	},
 	"scripts": {
