@@ -53,7 +53,7 @@
 		"nyc": "^15.1.0",
 		"sinon": "^16.1.0",
 		"supertest": "^7.0.0",
-		"execa": "^8.0.1"
+		"execa": "^9.1.0"
 	},
 	"scripts": {
 		"depcheck": "depcheck --ignores ava,@istanbuljs/esm-loader-hook",
