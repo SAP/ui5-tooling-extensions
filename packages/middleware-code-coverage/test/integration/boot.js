@@ -61,12 +61,6 @@ const globalCoverageMap = {
 };
 
 function exec(command, args=[]) {
-	// return execa(command, args, {
-	// 	cwd: path.join(__dirname, "fixtures", "ui5-app"),
-	// 	preferLocal: true
-	// })
-	// 	.pipeStdout(process.stdout)
-	// 	.pipeStderr(process.stderr);
 	return execa(command, args, {
 		cwd: path.join(__dirname, "fixtures", "ui5-app"),
 		preferLocal: true
