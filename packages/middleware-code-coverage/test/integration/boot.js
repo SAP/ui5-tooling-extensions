@@ -1,4 +1,4 @@
-import test from "ava";
+import {default as test, registerCompletionHandler} from "ava";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import getPort from "get-port";
@@ -72,10 +72,11 @@ function exec(command, args=[]) {
 }
 
 function startUI5Server(configPath, port) {
-	// Starting the app this way allows AVA to directly manage and kill subprocesses like "ui5 serve".
-	// Using App's 'npm start' script would start a (detached) subprocess and that
-	// would require more efforts to find and kill it.
 	const child = exec("ui5", ["serve", "--config", configPath, "--port", port]);
+
+	registerCompletionHandler(() => {
+		process.exit();
+	});
 
 	return new Promise( (resolve, reject) => {
 		const onError = (errMessage = "Start of UI5 Server failed.") => {
