@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.1.1...middleware-code-coverage-v2.0.0) (2024-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support for older Node.js has been dropped. Only Node.js 20.11.x and >=22.0.0 as well as npm v8 or higher are supported.
+
+### Features
+
+* Drop support for node v16, v18, v21 ([#267](https://github.com/SAP/ui5-tooling-extensions/issues/267)) ([40b607e](https://github.com/SAP/ui5-tooling-extensions/commit/40b607e999a840b9135c2fcd1989d8505cf873f7))
+
+
+### Dependencies
+
+* bump istanbul-lib-instrument from 6.0.1 to 6.0.2 ([b7e0c58](https://github.com/SAP/ui5-tooling-extensions/commit/b7e0c58f0774f8e33d8f55969b127b25d773f9e2))
+* bump istanbul-reports from 3.1.6 to 3.1.7 ([db471fd](https://github.com/SAP/ui5-tooling-extensions/commit/db471fd60c7d8d39baec3e50a68be6b191ba2c0b))
+
 ## [1.1.1](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.1.0...middleware-code-coverage-v1.1.1) (2023-11-24)
 
 
