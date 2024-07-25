@@ -24,8 +24,8 @@
 		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
 	},
 	"engines": {
-		"node": ">=18",
-		"npm": ">=9"
+		"node": "^20.11.0 || >=22.0.0",
+		"npm": ">=8"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.3.0",
