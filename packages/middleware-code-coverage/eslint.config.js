@@ -6,11 +6,8 @@ import google from "eslint-config-google";
 export default [
 	js.configs.recommended,
 	google,
+	ava.configs["flat/recommended"],
 	{
-		plugins: {
-			ava,
-		},
-
 		languageOptions: {
 			globals: {
 				...globals.node,
