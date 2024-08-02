@@ -6,9 +6,9 @@ import {readFile} from "node:fs/promises";
  * Returns the configuration for instrumenting the files
  *
  * @public
- * @param resources
  * @param {object} configuration instrumentation configuration
- * @returns configuration
+ * @param {@ui5/fs/Resource[]} resources
+ * @returns {Promise<object>} configuration
  */
 export async function createInstrumentationConfig(configuration = {}, resources) {
 	const excludedPatterns = resources ? await excludePatterns(resources) : [];
@@ -56,7 +56,7 @@ export function getLatestSourceMap(instrumenter) {
  * @public
  * @param {object} request
  * @param {object} config
- * @returns
+ * @returns {boolean}
  */
 export function shouldInstrumentResource(request, config) {
 	return (
@@ -79,7 +79,7 @@ export function shouldInstrumentResource(request, config) {
  *
  * @private
  * @param {object} configuration
- * @returns
+ * @returns {object}
  */
 function createInstrumenterConfig(configuration = {}) {
 	const defaultValues = {
@@ -96,7 +96,7 @@ function createInstrumenterConfig(configuration = {}) {
  *
  * @private
  * @param {object} configuration Reporting configuration
- * @returns
+ * @returns {object}
  */
 function createReporterConfig(configuration = {}) {
 	const defaultValues = {
@@ -132,7 +132,7 @@ function isFalsyValue(value) {
  *
  * @private
  * @param {@ui5/fs/Resource[]} resources
- * @returns exclude patterns
+ * @returns {Promise<RegExp[]>} exclude patterns
  */
 async function excludePatterns(resources) {
 	const aExcludes = [];
