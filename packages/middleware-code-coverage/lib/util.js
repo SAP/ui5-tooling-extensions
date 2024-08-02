@@ -6,6 +6,7 @@ import {readFile} from "node:fs/promises";
  * Returns the configuration for instrumenting the files
  *
  * @public
+ * @param resources
  * @param {object} configuration instrumentation configuration
  * @returns configuration
  */
