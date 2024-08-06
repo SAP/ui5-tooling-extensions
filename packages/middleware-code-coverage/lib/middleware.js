@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
 	createInstrumentationConfig,
 	shouldInstrumentResource,
@@ -29,7 +30,7 @@ import {promisify} from "node:util";
  * 										the project the server is started in
  * @param {module:@ui5/fs.AbstractReader} parameters.resources.dependencies Reader or Collection to read resources of
  * 										the projects dependencies
- * @returns {function} Middleware function to use
+ * @returns {Function} Middleware function to use
  */
 export default async function({log, middlewareUtil, options={}, resources}) {
 	const config = await createInstrumentationConfig(
