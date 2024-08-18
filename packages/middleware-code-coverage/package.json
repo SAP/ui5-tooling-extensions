@@ -51,7 +51,7 @@
 		"eslint-plugin-ava": "^15.0.1",
 		"eslint-plugin-jsdoc": "^48.11.0",
 		"esmock": "^2.6.7",
-		"execa": "^9.3.0",
+		"execa": "^9.3.1",
 		"get-port": "^7.1.0",
 		"globals": "^15.8.0",
 		"nyc": "^17.0.0",
