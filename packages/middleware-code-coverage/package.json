@@ -38,7 +38,7 @@
 		"istanbul-lib-report": "^3.0.1",
 		"istanbul-reports": "^3.1.7",
 		"router": "^1.3.8",
-		"serve-static": "^1.16.0",
+		"serve-static": "^1.16.2",
 		"xml2js": "^0.6.2"
 	},
 	"devDependencies": {
@@ -49,13 +49,13 @@
 		"eslint": "^9.10.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-plugin-ava": "^15.0.1",
-		"eslint-plugin-jsdoc": "^50.2.2",
+		"eslint-plugin-jsdoc": "^50.2.4",
 		"esmock": "^2.6.7",
-		"execa": "^9.3.1",
+		"execa": "^9.4.0",
 		"get-port": "^7.1.0",
-		"globals": "^15.8.0",
-		"nyc": "^17.0.0",
-		"sinon": "^18.0.0",
+		"globals": "^15.9.0",
+		"nyc": "^17.1.0",
+		"sinon": "^18.0.1",
 		"supertest": "^7.0.0"
 	},
 	"scripts": {
