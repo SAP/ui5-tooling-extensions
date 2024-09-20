@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.1](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v2.0.0...middleware-code-coverage-v2.0.1) (2024-09-20)
+
+
+### Dependencies
+
+* Bump body-parser from 1.20.2 to 1.20.3 ([a244517](https://github.com/SAP/ui5-tooling-extensions/commit/a244517c4736b9fa9ec80e813c1bf61ac22a2011))
+* Bump serve-static from 1.15.0 to 1.16.0 ([c2bedbf](https://github.com/SAP/ui5-tooling-extensions/commit/c2bedbffb5054cab75a9b0274385a0a42b3e177e))
+* Bump sinon from 18.0.1 to 19.0.2 and router from 1.3.8 to 2.0.0 ([#303](https://github.com/SAP/ui5-tooling-extensions/issues/303)) ([1516b38](https://github.com/SAP/ui5-tooling-extensions/commit/1516b383c2bda0db3a78634f7181bcf0d56fcaf7))
+
 ## [2.0.0](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v1.1.1...middleware-code-coverage-v2.0.0) (2024-07-25)
 
 
