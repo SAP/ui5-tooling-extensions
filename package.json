@@ -30,7 +30,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.5.0",
 		"@commitlint/config-conventional": "^19.5.0",
-		"@ui5/cli": "^4.0.8",
+		"@ui5/cli": "^4.0.9",
 		"husky": "^9.1.6",
 		"licensee": "^11.1.1"
 	},
