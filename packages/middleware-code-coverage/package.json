@@ -46,7 +46,7 @@
 		"@istanbuljs/esm-loader-hook": "^0.2.0",
 		"ava": "^6.2.0",
 		"depcheck": "^1.4.7",
-		"eslint": "^9.14.0",
+		"eslint": "^9.15.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-plugin-ava": "^15.0.1",
 		"eslint-plugin-jsdoc": "^50.4.3",
