@@ -37,7 +37,7 @@
 		"istanbul-lib-instrument": "^6.0.3",
 		"istanbul-lib-report": "^3.0.1",
 		"istanbul-reports": "^3.1.7",
-		"router": "^2.1.0",
+		"router": "^2.2.0",
 		"serve-static": "^1.16.2",
 		"xml2js": "^0.6.2"
 	},
