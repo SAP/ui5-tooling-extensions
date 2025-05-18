@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.2](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v2.0.1...middleware-code-coverage-v2.0.2) (2025-04-22)
+
+
+### Dependencies
+
+* Bump router from 2.0.0 to 2.1.0 ([0d12240](https://github.com/SAP/ui5-tooling-extensions/commit/0d12240c003c9aa170ff728c77f130a4d6864792))
+* Bump router from 2.1.0 to 2.2.0 ([c4878be](https://github.com/SAP/ui5-tooling-extensions/commit/c4878bec44f96ae7834c6e788d282863e6caaa67))
+* Bump serve-static from 1.16.2 to 2.2.0 ([fe86343](https://github.com/SAP/ui5-tooling-extensions/commit/fe86343abc497ee68a7b2f73a98bfe5c7e38331e))
+
 ## [2.0.1](https://github.com/SAP/ui5-tooling-extensions/compare/middleware-code-coverage-v2.0.0...middleware-code-coverage-v2.0.1) (2024-09-20)
 
 
