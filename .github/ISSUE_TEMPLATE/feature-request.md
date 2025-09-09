@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Request a new feature to be added to a package part of UI5 Tooling Extensions
+about: Request a new feature to be added to a package part of UI5 CLI Extensions
 title: ''
 type: Feature
 assignees: ''
@@ -9,7 +9,7 @@ assignees: ''
 
 <!--
 Hey there 👋 Please also have a look at our guidelines on feature requests:
-https://github.com/SAP/ui5-tooling-extensions/blob/main/CONTRIBUTING.md#-feature-requests
+https://github.com/UI5/cli-extensions/blob/main/CONTRIBUTING.md#-feature-requests
 -->
 
 ## Is your feature request related to a problem? Please describe.

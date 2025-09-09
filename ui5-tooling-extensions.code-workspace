@@ -5,7 +5,7 @@
 			"path": "packages/middleware-code-coverage"
 		},
 		{
-			"name": "ui5-tooling-extensions",
+			"name": "ui5-cli-extensions",
 			"path": "."
 		}
 	],

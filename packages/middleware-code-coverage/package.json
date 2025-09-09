@@ -1,7 +1,7 @@
 {
 	"name": "@ui5/middleware-code-coverage",
 	"version": "2.0.1",
-	"description": "UI5 Tooling middleware to instrument code coverage with Istanbul",
+	"description": "UI5 CLI middleware to instrument code coverage with Istanbul",
 	"author": {
 		"name": "SAP SE",
 		"email": "openui5@sap.com",
@@ -20,7 +20,7 @@
 	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
+		"url": "git@github.com:UI5/cli-extensions.git"
 	},
 	"type": "module",
 	"files": [
