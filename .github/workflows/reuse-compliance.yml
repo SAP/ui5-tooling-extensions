@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
 jobs:
   compliance-check:
     name: Compliance Check
