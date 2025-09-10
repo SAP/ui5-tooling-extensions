@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report an issue with a package part of UI5 Tooling Extensions
+about: Report an issue with a package part of UI5 CLI Extensions
 title: ''
 type: Bug
 labels: needs triage
@@ -10,7 +10,7 @@ assignees: ''
 
 <!--
 Hey there 👋 Please have a look at our guidelines on reporting issues:
-https://github.com/SAP/ui5-tooling-extensions/blob/main/CONTRIBUTING.md#-reporting-issues
+https://github.com/UI5/cli-extensions/blob/main/CONTRIBUTING.md#-reporting-issues
 
 Please use this template and replace as many "{...}" and "unknown" as possible.
 Thank you 🧡
@@ -36,7 +36,7 @@ Thank you 🧡
 
 ## Context
 
-- UI5 Tooling Extension package and version
+- UI5 CLI Extension package and version
 - UI5 Module Version (output of `ui5 --version` when using the CLI): **`unknown`**
 - Node.js Version: **`unknown`**
 - npm Version: `unknown`

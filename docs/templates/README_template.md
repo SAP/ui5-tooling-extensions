@@ -4,7 +4,7 @@ Describe the basic benefit of this extension.
 
 ## Requirements
 
-This middleware requires UI5 Tooling Version 3 and above.
+This middleware requires UI5 CLI Version 3 and above.
 
 ## Install
 
@@ -49,16 +49,16 @@ Describe in more details what the extensions does.
 
 ## Code of Conduct
 
-Please check our [Code of Conduct](https://github.com/SAP/ui5-tooling-extensions/blob/main/CODE_OF_CONDUCT.md).
+Please check our [Code of Conduct](https://github.com/UI5/cli-extensions/blob/main/CODE_OF_CONDUCT.md).
 
 ## Contributing
 
-Please check our [Contribution Guidelines](https://github.com/SAP/ui5-tooling-extensions/blob/main/CONTRIBUTING.md).
+Please check our [Contribution Guidelines](https://github.com/UI5/cli-extensions/blob/main/CONTRIBUTING.md).
 
 ## Support
 
-Please follow our [Contribution Guidelines](https://github.com/SAP/ui5-tooling-extensions/blob/main/CONTRIBUTING.md#report-an-issue) on how to report an issue. Or chat with us in the [`#tooling`](https://openui5.slack.com/archives/C0A7QFN6B) channel of the [OpenUI5 Community Slack](https://join.slack.com/t/openui5/shared_invite/zt-1q128gn3p-JeZTi9XCpPxW8kBohSgqnw). For public Q&A, use the [`ui5-tooling` tag on Stack Overflow](https://stackoverflow.com/questions/tagged/ui5-tooling).
+Please follow our [Contribution Guidelines](https://github.com/UI5/cli-extensions/blob/main/CONTRIBUTING.md#report-an-issue) on how to report an issue. Or chat with us in the [`#tooling`](https://openui5.slack.com/archives/C0A7QFN6B) channel of the [OpenUI5 Community Slack](https://join.slack.com/t/openui5/shared_invite/zt-1q128gn3p-JeZTi9XCpPxW8kBohSgqnw). For public Q&A, use the [`ui5-cli` tag on Stack Overflow](https://stackoverflow.com/questions/tagged/ui5-cli).
 
 ## Licensing
 
-Copyright 2025 SAP SE or an SAP affiliate company and UI5 Tooling Extensions contributors. Please see our [LICENSE.txt](../../LICENSE.txt) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available via the [REUSE tool](https://api.reuse.software/info/github.com/SAP/ui5-tooling-extensions).
+Copyright 2025 SAP SE or an SAP affiliate company and UI5 CLI Extensions contributors. Please see our [LICENSE.txt](../../LICENSE.txt) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available via the [REUSE tool](https://api.reuse.software/info/github.com/UI5/cli-extensions).

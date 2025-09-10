@@ -20,7 +20,7 @@ import {promisify} from "node:util";
  *      Logger instance for use in the custom middleware.
  *      This parameter is only provided to custom middleware
  * @param {object} parameters.middlewareUtil Specification version dependent interface to a
- * 										[MiddlewareUtil]{https://sap.github.io/ui5-tooling/v3/api/@ui5_server_middleware_MiddlewareUtil.html} instance
+ * 										[MiddlewareUtil]{https://ui5.github.io/cli/v3/api/@ui5_server_middleware_MiddlewareUtil.html} instance
  * @param {object} parameters.options Options
  * @param {string} [parameters.options.configuration] Custom server middleware configuration if given in ui5.yaml
  * @param {object} parameters.resources Resource collections

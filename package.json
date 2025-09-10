@@ -1,8 +1,8 @@
 {
-	"name": "ui5-tooling-extensions",
+	"name": "ui5-cli-extensions",
 	"private": true,
 	"version": "0.0.0",
-	"description": "A repository offering extensions of UI5 Tooling",
+	"description": "A repository offering extensions of UI5 CLI",
 	"author": {
 		"name": "SAP SE",
 		"email": "openui5@sap.com",
@@ -21,7 +21,7 @@
 	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:SAP/ui5-tooling-extensions.git"
+		"url": "git@github.com:UI5/cli-extensions.git"
 	},
 	"engines": {
 		"node": "^20.11.0 || >=22.0.0",
